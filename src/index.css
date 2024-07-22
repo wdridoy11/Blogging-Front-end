@@ -15,3 +15,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.blog-btn{
+  @apply text-base font-medium border border-[#40d0c6] text-[#40d0c6] px-10 py-2 rounded-md 
+  hover:bg-[#40d0c6] hover:text-white duration-500 mb-2
+}
