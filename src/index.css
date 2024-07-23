@@ -18,8 +18,10 @@ code {
 
 @layer components{
   .blog-btn{
-      @apply text-base font-medium border border-[#40d0c6] text-[#40d0c6] px-10 py-2 rounded-md 
-      hover:bg-[#40d0c6] hover:text-white duration-500 mb-2
+      @apply text-white cursor-pointer inline-block border border-[#29c8e6] bg-[#29c8e6]  font-medium text-center px-7 mt-2 py-1.5 rounded-full hover:bg-black hover:dark:bg-white hover:dark:text-black hover:text-white duration-500;
+  }
+  .blog-description{
+    @apply text-base font-normal dark:text-[#8799ad] text-slate-700;
   }
   .bg-blog-primary{
     background-color:#29C8E6;
@@ -33,7 +35,7 @@ code {
 
 @layer base{
   h1{
-     @apply text-2xl;
+     @apply text-2xl font-semibold;
   }
   h2{
       @apply text-xl;
