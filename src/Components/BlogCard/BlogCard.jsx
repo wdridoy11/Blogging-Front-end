@@ -6,12 +6,19 @@ import img from '../../Assets/Rectangle 1.png';
 import Categories from '../Categories/Categories';
 import BlogPostInfo from '../BlogPostInfo/BlogPostInfo';
 import FavoriteBlog from '../FavoriteBlog/FavoriteBlog';
+import RemoveBlog from '../RemoveBlog/RemoveBlog';
 
 const BlogCard = () => {
+    let remove = false
   return (
     <div>
         <div className='rounded-2xl custom-shadow'>
-            <img className='w-full h-[250px] object-cover object-top rounded-t-md' src={img} alt="blog image" />
+            <div className='relative'>
+                <img className='w-full h-[250px] object-cover object-top rounded-t-md' src={img} alt="blog image" />
+                {remove ? <div className='absolute top-5 right-5'>
+                    <RemoveBlog />
+                </div>:""}
+            </div>
             <div className='p-4 rounded-b-md bg-white'>
                 <div className='flex items-center justify-between'>
                     <div>
@@ -35,7 +42,7 @@ const BlogCard = () => {
                 </div>
                 {/* blog Read More btn */}
                 <div>
-                    <Link className='blog-btn' to={"/blog-details"}>Read More</Link>
+                    <Link className='blog-btn mt-2' to={"/blog-details"}>Read More</Link>
                 </div>
             </div>
         </div>

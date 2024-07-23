@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaSun } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import img from '../../Assets/Rectangle 27.png';
 
 const Header = () => {
   return (
@@ -8,10 +9,14 @@ const Header = () => {
         <div className='container'>
             <div className='flex items-center justify-between'>
                 <div></div>
-                <div>
-                    <Link className='text-base mx-4 font-medium' to={"/"}>Home</Link>
-                    <Link className='text-base mx-4 font-medium' to={"/blogs"}>Blogs</Link>
+                <div className='flex items-center gap-5'>
+                    <Link className='text-base font-medium' to={"/"}>Home</Link>
+                    <Link className='text-base font-medium' to={"/blogs"}>Blogs</Link>
                     <button><FaSun></FaSun></button>
+                    <Link className='blog-btn' to={"/dashboard"}>Login</Link>
+                    <Link to={"/dashboard"}>
+                        <img className='w-10 h-10 rounded-full object-cover' src={img} alt="" />
+                    </Link>
                 </div>
             </div>
         </div>

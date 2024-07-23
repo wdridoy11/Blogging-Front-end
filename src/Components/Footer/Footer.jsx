@@ -47,7 +47,7 @@ useEffect(()=>{
                      <div>
                         <form>
                             <input type="email" name="email" className="py-3 rounded-md w-full px-4 text-lg outline-none" id="email" placeholder="Your email address" />
-                            <input type="submit" className="blog-btn rounded-md py-3" value="Subscribe" />
+                            <input type="submit" className="blog-btn rounded-md py-3 mt-2" value="Subscribe" />
                          </form>
                      </div>
                  </div>
