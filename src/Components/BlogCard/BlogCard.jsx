@@ -10,12 +10,12 @@ import FavoriteBlog from '../FavoriteBlog/FavoriteBlog';
 const BlogCard = () => {
   return (
     <div>
-        <div className='container mx-auto px-5'>
+        <div>
             <div>
                 <div>
                     <div>
                         <div className='rounded-2xl custom-shadow'>
-                            <img className='w-full h-[250px] object-cover object-top rounded-t-md' src={img} alt="blog" />
+                            <img className='w-full h-[250px] object-cover object-top rounded-t-md' src={img} alt="blog image" />
                             <div className='p-4 rounded-b-md bg-white'>
                                 <div className='flex items-center justify-between'>
                                     <div>

@@ -6,7 +6,7 @@ const BlogPostInfo = () => {
   return (
     <div className='flex gap-5'>
         {/* author name */}
-        <Link className='text-[#29c8e6] hover:text-red-500 duration-500' to={""}>
+        <Link className='text-[#29c8e6] duration-500' to={""}>
             <div className='flex items-center gap-1'>
                 <div>
                     <Link className='text-sm text-[#29c8e6]' to={``}><FaUser /></Link>
