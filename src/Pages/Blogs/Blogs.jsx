@@ -3,7 +3,8 @@ import BlogCard from '../../Components/BlogCard/BlogCard'
 
 const Blogs = () => {
   return (
-    <div>
+    // <div className=''>
+    <div className='bg-white dark:bg-slate-900'>
         <BlogCard />
     </div>
   )

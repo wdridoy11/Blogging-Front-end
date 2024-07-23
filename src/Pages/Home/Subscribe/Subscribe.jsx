@@ -10,7 +10,7 @@ const Subscribe = () => {
 
   return (
     <div className='container mx-auto px-5 my-20'>
-        <div className='bg-[#29c8e6] py-20 rounded-xl px-5'>
+        <div className='bg-blog-primary py-20 rounded-xl px-5'>
             <div>
                 <div className="flex flex-col items-center justify-between md:flex-row">
                    <div className="w-full lg:w-1/2">

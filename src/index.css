@@ -16,8 +16,29 @@ code {
     monospace;
 }
 
+@layer components{
+  .blog-btn{
+      @apply text-base font-medium border border-[#40d0c6] text-[#40d0c6] px-10 py-2 rounded-md 
+      hover:bg-[#40d0c6] hover:text-white duration-500 mb-2
+  }
+  .bg-blog-primary{
+    background-color:#29C8E6;
+  }
+  .text-blog-primary{
+    color: #29C8E6;
+  }
+}
 
-.blog-btn{
-  @apply text-base font-medium border border-[#40d0c6] text-[#40d0c6] px-10 py-2 rounded-md 
-  hover:bg-[#40d0c6] hover:text-white duration-500 mb-2
+
+
+@layer base{
+  h1{
+     @apply text-2xl;
+  }
+  h2{
+      @apply text-xl;
+  }
+  h3{
+      @apply text-lg;
+  }
 }
