@@ -25,7 +25,7 @@ const Blogs = () => {
                                         <input type="search" name="blog-search" className='pl-4 py-2 rounded-l-md w-full outline-none' id="blog-search" placeholder='Search blog...' />
                                     </div>
                                     <div>
-                                        <button className='bg-[#29c8e6] text-white px-3 py-2.5 rounded-r-md hover:bg-black duration-500 cursor-pointer'>
+                                        <button className='bg-blog-primary text-white px-3 py-2.5 rounded-r-md hover:bg-black duration-500 cursor-pointer'>
                                             <FaSearch className='text-xl '></FaSearch>
                                         </button>
                                     </div>

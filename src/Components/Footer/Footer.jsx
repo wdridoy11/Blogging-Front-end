@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SocialMedia from '../SocialMedia/SocialMedia';
-
+import { getCategoriesData } from '../../API/Categories';
+import useCategory from '../../Hooks/useCategory';
 const Footer = () => {
+
+//   const [categories,refetch] = useCategory();
+// console.log(categories)
+
+const [categories, setCategories] = useState()
+useEffect(()=>{
+   fetch("category.json")
+   .then((res)=>res.json())
+   .then((data)=>setCategories(data))
+},[])
+
   return (
     <div>
       <footer>
@@ -20,10 +32,9 @@ const Footer = () => {
                  </div>
                  <div>
                     <h3 className="text-white font-medium mb-6">Category</h3>
-                    <Link className='text-slate-400 block mb-2'>Freelancing</Link>
-                    <Link className='text-slate-400 block mb-2'>Web Design</Link>
-                    <Link className='text-slate-400 block mb-2'>Web Development</Link>
-                    <Link className='text-slate-400 block mb-2'>Software Development</Link>
+                    <Link className='text-slate-400 block mb-2'>I Love My Country</Link>
+                    <Link className='text-slate-400 block mb-2'>Improve Skills</Link>
+                    <Link className='text-slate-400 block mb-2'>Increase Knowledge</Link>
                  </div>
                  <div>
                  <h3 className="text-white font-medium mb-6">Blog</h3>
@@ -43,7 +54,7 @@ const Footer = () => {
               </div>
            </div>
         </div>
-        <div className="text-center bg-red-500 py-5">
+        <div className="text-center bg-blog-primary py-5">
            <p className="text-white">&copy; Copyright 2022 | All Reserved</p>
         </div>
       </footer>

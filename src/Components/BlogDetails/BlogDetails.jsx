@@ -58,7 +58,7 @@ const BlogDetails = () => {
                     <div>
                         <h3>Like Blog</h3>
                         <div>
-                            <button className='text-xl bg-[#29c8e6] p-2 text-white rounded-md hover:bg-black duration-500'>
+                            <button className='social-media-icon'>
                                 <FaLinkedin></FaLinkedin>
                             </button>
                         </div>
@@ -70,7 +70,7 @@ const BlogDetails = () => {
                                 <form className='w-full'>
                                     <label htmlFor="blog-comment" className='text-base block text-[#8799ad]'>Comment</label>
                                     <textarea name="blog-comment" className='w-full border p-3 rounded-md outline-none' id="blog-comment" cols="30" rows="5" placeholder='Write Comment...'></textarea>
-                                    <input type="submit" className='block text-white cursor-pointer bg-[#29c8e6] border-0 font-medium text-center px-7 py-2 rounded-full hover:bg-black hover:text-white duration-500' value="Submit" />
+                                    <input type="submit" className='blog-btn' value="Submit" />
                                 </form>
                             </div>
 
