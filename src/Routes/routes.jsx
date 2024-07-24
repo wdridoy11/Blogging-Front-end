@@ -16,6 +16,7 @@ import CreateBlog from '../Pages/Dashboard/Admin/CreateBlog/CreateBlog';
 import CreateCategory from '../Pages/Dashboard/Admin/CreateCategory/CreateCategory';
 import AllBlogs from '../Pages/Dashboard/Admin/AllBlogs/AllBlogs';
 import AllUsers from '../Pages/Dashboard/Admin/AllUsers/AllUsers';
+import AdminProfile from '../Pages/Dashboard/Admin/AdminProfile/AdminProfile';
 
 
 const router=createBrowserRouter([
@@ -68,7 +69,7 @@ const router=createBrowserRouter([
            },
            {
                 path:"profile",
-                element:<AllUsers />
+                element:<AdminProfile />
                 
            },
         //    {

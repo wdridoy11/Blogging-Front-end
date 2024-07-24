@@ -47,6 +47,9 @@ code {
     .dashboard-details-area{
         @apply bg-slate-100 p-10 rounded-lg;
     }
+    .create-blog-input-field{
+        @apply w-full border p-3 rounded-md outline-none mt-1;
+    }
 }
 
 

@@ -17,7 +17,7 @@ const CreateCategory = () => {
                                     </div>
                                     <div className='mt-4'>
                                         <label htmlFor="parent-category" className='text-black block'>Parent Category</label>
-                                        <select name="" id=""  className='border w-full p-3 rounded-md outline-none text-base text-[#8799ad]'>
+                                        <select name="parent-category" id="parent-category"  className='border w-full p-3 rounded-md outline-none text-base text-[#8799ad]'>
                                             <option className='py-2 block text-base text-[#8799ad]' value="">Web Design</option>
                                             <option className='py-2 block text-base text-[#8799ad]' value="">Web Development</option>
                                         </select>
