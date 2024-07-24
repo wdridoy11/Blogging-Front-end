@@ -6,15 +6,9 @@ const BlogPostInfo = () => {
   return (
     <div className='flex gap-5'>
         {/* author name */}
-        <Link className='text-blog-primary duration-500' to={""}>
-            <div className='flex items-center gap-1'>
-                <div>
-                    <Link className='text-sm text-blog-primary' to={``}><FaUser /></Link>
-                </div>
-                <div>
-                    <h5 className='text-sm'>John Deo</h5>
-                </div>
-            </div>
+        <Link className='text-blog-primary duration-500 flex items-center gap-2' to="/author-profile">
+            <p className='text-sm text-blog-primary'><FaUser /></p>
+            <p className='text-sm'>John Deo</p>
         </Link>
         {/* blog date */}
         <div className='flex items-center gap-1 text-[#8799ad]'>

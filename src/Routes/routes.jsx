@@ -11,6 +11,11 @@ import BlogDetails from '../Components/BlogDetails/BlogDetails';
 import SaveBlog from '../Pages/Dashboard/User/SaveBlog/SaveBlog';
 import UserProfile from '../Pages/Dashboard/User/UserProfile/UserProfile';
 import FavoriteBlog from '../Pages/Dashboard/User/FavoriteBlog/FavoriteBlog';
+import AuthorProfile from '../Components/AuthorProfile/AuthorProfile';
+import CreateBlog from '../Pages/Dashboard/Admin/CreateBlog/CreateBlog';
+import CreateCategory from '../Pages/Dashboard/Admin/CreateCategory/CreateCategory';
+import AllBlogs from '../Pages/Dashboard/Admin/AllBlogs/AllBlogs';
+import AllUsers from '../Pages/Dashboard/Admin/AllUsers/AllUsers';
 
 
 const router=createBrowserRouter([
@@ -30,6 +35,10 @@ const router=createBrowserRouter([
                 path: "blog-details",
                 element:<BlogDetails /> ,
             },
+            {
+                path: "author-profile",
+                element:<AuthorProfile /> ,
+            },
               
         ]
     },
@@ -37,6 +46,36 @@ const router=createBrowserRouter([
         path:"dashboard",
         element:<Dashboard />,
         children:[
+           {
+                path:"create-blog",
+                element:<CreateBlog />
+                
+           },
+           {
+                path:"create-category",
+                element:<CreateCategory />
+                
+           },
+           {
+                path:"all-blog",
+                element:<AllBlogs />
+                
+           },
+           {
+                path:"all-users",
+                element:<AllUsers />
+                
+           },
+           {
+                path:"profile",
+                element:<AllUsers />
+                
+           },
+        //    {
+        //         path:"Subscribe",
+        //         element:<AllUsers />
+                
+        //    },
            {
                 path:"favorite",
                 element:<FavoriteBlog />
@@ -49,7 +88,8 @@ const router=createBrowserRouter([
            {
                 path:"user-profile",
                 element:<UserProfile />
-           }
+           },
+
         ]
     },
     {
