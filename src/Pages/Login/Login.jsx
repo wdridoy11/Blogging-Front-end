@@ -1,17 +1,20 @@
 import React from 'react'
-import { FaGithub, FaGoogle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { FaEye, FaGithub, FaGoogle } from 'react-icons/fa'
 
 const Login = () => {
   return (
     <div className='min-h-screen flex items-center'>
         <div className='container'>
             <div>
-                <div className='border w-full mx-auto md:w-3/5 p-10 rounded-xl'>
-                    <h1 className='text-center mb-10'>Login</h1>
+                <div className='border w-full mx-auto md:w-3/5 p-5  md:p-10 rounded-xl'>
+                    <h1 className='text-center mb-10 text-3xl'>Login</h1>
                     <form>
                         <input type="email" name="login-email" className='input-field' id="login-email" placeholder='Enter your email' required/>
-                        <input type="password" name="login-password" className='input-field' id="login-password" placeholder='Enter your password' required/>
+                        <div className='relative'>
+                            <input type="password" name="login-password" className='input-field' id="login-password" placeholder='Enter your password' required/>
+                            <button className='absolute right-5 bottom-7'><FaEye /></button>
+                        </div>
                         <div className='flex justify-between items-center mt-7'>
                             <div className='flex items-center gap-2'>
                                 <input type="checkbox" name="remember-me" id="remember-me" />

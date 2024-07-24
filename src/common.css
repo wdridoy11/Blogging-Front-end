@@ -12,3 +12,8 @@
 .custom-shadow{
     box-shadow: 0 5px 20px 1px rgba(41, 200, 230, .15);
 }
+.blog-scroll-list::-webkit-scrollbar {
+    /* width:px; */
+    /* background: red; */
+    display: none;
+}

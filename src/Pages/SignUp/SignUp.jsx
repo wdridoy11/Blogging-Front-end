@@ -1,19 +1,25 @@
 import React from 'react'
-import { FaGithub, FaGoogle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { FaEye, FaGithub, FaGoogle } from 'react-icons/fa'
 
 const SignUp = () => {
   return (
     <div className='min-h-screen flex items-center'>
         <div className='container'>
             <div>
-                <div className='border w-full mx-auto md:w-3/5 p-10 rounded-xl'>
-                    <h1 className='text-center mb-10'>Sign Up</h1>
+                <div className='border w-full mx-auto md:w-3/5 p-5  md:p-10 rounded-xl'>
+                    <h1 className='text-center mb-10 text-3xl'>Sign Up</h1>
                     <form>
                         <input type="text" name="sign-up-name" className='input-field' id="sign-up-name" placeholder='Enter your name' required/>
                         <input type="email" name="sign-up-email" className='input-field' id="sign-up-email" placeholder='Enter your email' required/>
-                        <input type="password" name="sign-up-password" className='input-field' id="sign-up-password" placeholder='Password' required/>
-                        <input type="password" name="sign-up-confirm-password" className='input-field' id="sign-up-confirm-password" placeholder='Confirm Password' required/>
+                        <div className='relative'>
+                            <input type="password" name="sign-up-password" className='input-field' id="sign-up-password" placeholder='Password' required/>
+                            <button className='absolute right-5 bottom-7'><FaEye /></button>
+                        </div>
+                        <div className='relative'>
+                            <input type="password" name="sign-up-confirm-password" className='input-field' id="sign-up-confirm-password" placeholder='Confirm Password' required/>
+                            <button className='absolute right-5 bottom-7'><FaEye /></button>
+                        </div>
                         <div className='mt-2'>
                             <div className='flex items-center gap-2'>
                                 <input type="checkbox" name="remember-me" id="remember-me" />
@@ -32,7 +38,7 @@ const SignUp = () => {
                             </div>
                         </div>
                         <div className='text-center mt-5'>
-                            <p className='text-lg text-slate-500'>Have an account? <Link className="text-blog-primary" to="/sign-up">Login</Link> </p>
+                            <p className='text-lg text-slate-500'>Have an account? <Link className="text-blog-primary" to="/login">Login</Link> </p>
                         </div>
                     </div>
                 </div>
