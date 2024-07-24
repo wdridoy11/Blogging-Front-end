@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {FaFacebookF, FaInstagram, FaLinkedin, FaTwitter} from 'react-icons/fa';
-
+    
 const SocialMedia = () => {
   return (
     <>

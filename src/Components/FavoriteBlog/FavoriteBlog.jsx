@@ -8,7 +8,6 @@ const FavoriteBlog = () => {
     console.log("Helo")
   }
 
-
   return (
     <>
         <button onClick={handleFavoriteBlog} className='blog-favorite'>

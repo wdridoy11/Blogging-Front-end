@@ -35,6 +35,9 @@ code {
   .blog-favorite{
     @apply text-black border border-[#29c8e6] rounded-full hover:bg-[#29c8e6] hover:text-white duration-500 p-1.5
   }
+  .dashboard-link{
+    @apply py-3 px-3 mb-1 rounded-md text-black flex items-center gap-2;
+  }
 }
 
 
