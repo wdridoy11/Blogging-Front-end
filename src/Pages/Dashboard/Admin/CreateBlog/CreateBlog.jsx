@@ -5,7 +5,9 @@ const CreateBlog = () => {
 
 
   const {register, handleSubmit, formState: {errors}} = useForm ();
-
+  const onsubmit = (data) => {
+    console.log(data)
+  }
 
   return (
     <div>
@@ -71,6 +73,25 @@ const CreateBlog = () => {
                                           className="create-blog-input-field bg-slate-300 cursor-not-allowed' id='blog-author-name" 
                                       />
                                       {/* <input type="email" name="blog-author-email" className='create-blog-input-field bg-slate-300 cursor-not-allowed' id='blog-author-email' value="ridoysharif@gmail.com" readOnly /> */}
+                                  </div>
+                                  <div>
+                                      <label htmlFor="author_email" className='text-black'>Author Name</label>
+                                      <input 
+                                          type="email" 
+                                          name='author_email' 
+                                          id='author_email' 
+                                          {...register("author_email",{required: true})}
+                                          value="ridoysharifbrmsrs@gmail.com" 
+                                          className="create-blog-input-field bg-slate-300 cursor-not-allowed' id='blog-author-name" 
+                                      />
+                                      {/* <input type="email" name="blog-author-email" className='create-blog-input-field bg-slate-300 cursor-not-allowed' id='blog-author-email' value="ridoysharif@gmail.com" readOnly /> */}
+                                  </div>
+                                  <div>
+                                      <input 
+                                          type="submit" 
+                                          className='blog-btn py-3 px-10'
+                                          value="Create Blog" 
+                                      />
                                   </div>
                               </div>
                          </form>
