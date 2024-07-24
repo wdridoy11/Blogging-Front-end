@@ -2,13 +2,15 @@ import React from 'react'
 import { createBrowserRouter } from "react-router-dom";
 // import pages
 import Main from '../Layout/Main';
-import Home from '../Pages/Home/Home/Home';
 import Blogs from '../Pages/Blogs/Blogs';
-import BlogDetails from '../Components/BlogDetails/BlogDetails';
+import Login from '../Pages/Login/Login';
+import Home from '../Pages/Home/Home/Home';
 import Dashboard from '../Layout/Dashboard';
+import SignUp from '../Pages/SignUp/SignUp';
+import BlogDetails from '../Components/BlogDetails/BlogDetails';
 import SaveBlog from '../Pages/Dashboard/User/SaveBlog/SaveBlog';
-import FavoriteBlog from '../Pages/Dashboard/User/FavoriteBlog/FavoriteBlog';
 import UserProfile from '../Pages/Dashboard/User/UserProfile/UserProfile';
+import FavoriteBlog from '../Pages/Dashboard/User/FavoriteBlog/FavoriteBlog';
 
 
 const router=createBrowserRouter([
@@ -49,6 +51,14 @@ const router=createBrowserRouter([
                 element:<UserProfile />
            }
         ]
+    },
+    {
+        path:"login",
+        element:<Login />
+    },
+    {
+        path:"sign-up",
+        element:<SignUp />
     }
 ])
 

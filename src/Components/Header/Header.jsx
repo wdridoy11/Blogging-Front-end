@@ -13,7 +13,7 @@ const Header = () => {
                     <Link className='text-base font-medium' to={"/"}>Home</Link>
                     <Link className='text-base font-medium' to={"/blogs"}>Blogs</Link>
                     <button><FaSun></FaSun></button>
-                    <Link className='blog-btn' to={"/dashboard"}>Login</Link>
+                    <Link className='blog-btn' to={"/login"}>login</Link>
                     <Link to={"/dashboard"}>
                         <img className='w-10 h-10 rounded-full object-cover' src={img} alt="" />
                     </Link>

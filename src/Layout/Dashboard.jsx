@@ -29,7 +29,7 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className='absolute w-11/12 bottom-3 left-3 mr-1 border-t border-slate-300'>
-                    <div>
+                    <div className='mt-1'>
                       <NavLink className='dashboard-link' to="/"><FaHome /> Home</NavLink>
                       <NavLink className='dashboard-link' to="/blogs"><FaBookOpen /> Blogs</NavLink>
                       <button className='dashboard-link blog-btn rounded-full py-2 px-10 text-white text-base'> Log Out <FaArrowRight /></button>
