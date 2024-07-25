@@ -17,6 +17,7 @@ import CreateCategory from '../Pages/Dashboard/Admin/CreateCategory/CreateCatego
 import AllBlogs from '../Pages/Dashboard/Admin/AllBlogs/AllBlogs';
 import AllUsers from '../Pages/Dashboard/Admin/AllUsers/AllUsers';
 import AdminProfile from '../Pages/Dashboard/Admin/AdminProfile/AdminProfile';
+import AdminDashboard from '../Pages/Dashboard/Admin/AdminDashboard/AdminDashboard';
 
 
 const router=createBrowserRouter([
@@ -44,9 +45,14 @@ const router=createBrowserRouter([
         ]
     },
     {
-        path:"dashboard",
+        path:"/dashboard",
         element:<Dashboard />,
         children:[
+           {
+                path:"",
+                element:<AdminDashboard />
+                
+           },
            {
                 path:"create-blog",
                 element:<CreateBlog />

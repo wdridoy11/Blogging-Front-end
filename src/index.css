@@ -18,7 +18,7 @@ code {
 
 @layer components{
     .blog-btn{
-        @apply text-white cursor-pointer inline-block border border-[#29c8e6] bg-[#29c8e6]  font-medium text-center px-7 py-1.5 rounded-full hover:bg-black hover:dark:bg-white hover:dark:text-black hover:text-white duration-500;
+        @apply text-white cursor-pointer inline-block border border-[#29c8e6] bg-blog-primary  font-medium text-center px-7 py-1.5 rounded-full hover:bg-black hover:dark:bg-white hover:dark:text-black hover:text-white duration-500;
     }
     .blog-description{
         @apply text-base font-normal dark:text-[#8799ad] text-slate-700;
@@ -51,8 +51,6 @@ code {
         @apply w-full border p-3 rounded-md outline-none mt-1;
     }
 }
-
-
 
 @layer base{
   h1{
