@@ -22,7 +22,7 @@ const BlogCard = () => {
             <div className='p-4 rounded-b-md bg-white'>
                 <div className='flex items-center justify-between'>
                     <div>
-                        <Link className='text-xl font-medium text-black mb-2 block' to={"/blogs"}>I Love My Country</Link>
+                        <Link className='text-xl font-medium text-black mb-2 block' to={"/blog-details"}>I Love My Country</Link>
                     </div>
                     {/* Blog save and favorite button */}
                     <div className='flex items-center gap-1'>

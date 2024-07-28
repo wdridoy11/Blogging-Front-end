@@ -10,6 +10,14 @@ import SocialMedia from '../SocialMedia/SocialMedia';
 import BlogComment from '../BlogComment/BlogComment';
 
 const BlogDetails = () => {
+
+
+   const handleComment = (event) => {
+        event.preventDefault();
+        let blogComment = event.target.blog_comment.value;
+        console.log(blogComment);
+   }
+
   return (
     <div className='py-20'>
         <div className='max-w-[1700px] mx-auto px-5'>
@@ -68,9 +76,9 @@ const BlogDetails = () => {
                     <div className='mt-5'>
                         <div className='grid md:grid-cols-2 gap-10'>
                             <div>
-                                <form className='w-full'>
-                                    <label htmlFor="blog-comment" className='text-base block text-[#8799ad]'>Comment</label>
-                                    <textarea name="blog-comment" className='w-full border p-3 rounded-md outline-none' id="blog-comment" cols="30" rows="5" placeholder='Write Comment...'></textarea>
+                                <form onSubmit={handleComment} className='w-full'>
+                                    <label htmlFor="blog_comment" className='text-base block text-[#8799ad]'>Comment</label>
+                                    <textarea name="blog_comment" className='w-full border p-3 rounded-md outline-none' id="blog_comment" cols="30" rows="5" placeholder='Write Comment...'></textarea>
                                     <input type="submit" className='blog-btn' value="Submit" />
                                 </form>
                             </div>

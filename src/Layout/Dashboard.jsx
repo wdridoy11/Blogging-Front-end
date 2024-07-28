@@ -17,8 +17,8 @@ const Dashboard = () => {
     console.log(isSidebarActive)
   }
 
-  let isAdmin = false;
-  let isUser = true;
+  let isAdmin = true;
+  let isUser = false;
 
   return (
     <div className='min-h-screen md:flex'>
