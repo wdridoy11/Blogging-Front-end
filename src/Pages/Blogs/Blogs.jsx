@@ -3,10 +3,12 @@ import BlogCard from '../../Components/BlogCard/BlogCard'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 import Categories from '../../Components/Categories/Categories'
+import { Helmet } from 'react-helmet'
 
 const Blogs = () => {
   return (
     <div className='py-20'>
+        <Helmet><title> Blogs </title></Helmet>
         <div className='container mx-auto px-5'>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-10'>
                 {/* blog list area */}

@@ -1,10 +1,12 @@
 import React from 'react'
 import Subscribe from '../Subscribe/Subscribe'
 import BlogCard from '../../../Components/BlogCard/BlogCard'
+import { Helmet } from 'react-helmet'
 
 const Home = () => {
   return (
     <div className='py-16'>
+      <Helmet><title>Home</title></Helmet>
         <div className='container'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14'>
                 <BlogCard />
