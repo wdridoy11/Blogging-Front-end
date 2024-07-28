@@ -3,9 +3,9 @@
         "id":121546794851,
         "author_name":"Ridoy Sharif",
         "author_email":"ridoysharifbrmsrs@gmail.com",
-        "author_image":"",
-        "author_profile_link":"",
-        "blog_post_date":"",
+        "author_image":"https://avatars.githubusercontent.com/u/115138025?v=4",
+        "author_profile_link":"https://github.com/wdridoy11",
+        "blog_post_date":"27/7/2024",
         "blog_image":"https://rehanax.com/wp-content/uploads/2022/12/best-gaming-laptop-model-entry-header-opt.jpg",
         "blog_title":"How to improve development skills",
         "blog_description":"If you want to improve development skills. You need base concepts and pronunciation knowledge",
@@ -14,6 +14,41 @@
         "blog_comment":[
             {
                 "name":"Rabby",
+                "comment":"This blog is very importent to develop our knowledge."
+            },
+            {
+                "name":"Rabby",
+                "comment":"This blog is very importent to develop our knowledge."
+            },
+            {
+                "name":"Rabby",
+                "comment":"This blog is very importent to develop our knowledge."
+            }
+        ]
+    },
+    {
+        "id":121546794851,
+        "author_name":"Sabbir",
+        "author_email":"sabbir454@gmail.com",
+        "author_image":"https://avatars.githubusercontent.com/u/115138025?v=4",
+        "author_profile_link":"https://github.com/wdridoy11",
+        "blog_post_date":"27/7/2024",
+        "blog_image":"https://rehanax.com/wp-content/uploads/2022/12/best-gaming-laptop-model-entry-header-opt.jpg",
+        "blog_title":"React Js",
+        "blog_description":"React is most popular javascript libary",
+        "blog_category":["Web Development","Software Development"],
+        "blog_like":0,
+        "blog_comment":[
+            {
+                "name":"Ratul",
+                "comment":"This blog is very importent to develop our knowledge."
+            },
+            {
+                "name":"Nahid",
+                "comment":"This blog is very importent to develop our knowledge."
+            },
+            {
+                "name":"Shohel",
                 "comment":"This blog is very importent to develop our knowledge."
             }
         ]
