@@ -11,12 +11,12 @@ const AdminProfile = () => {
                         <form>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                                 <div>
-                                    <label htmlFor="admin_name" className='text-black block'>Name</label>
-                                    <input type="text" name='admin_name' className='input-field mt-1' id='admin_name' value="Ridoy sharif" />
+                                    <label htmlFor="admin_name" className='dark-light-text block'>Name</label>
+                                    <input type="text" name='admin_name' className='input-field dark:bg-slate-800 dark:border-none mt-1' id='admin_name' value="Ridoy sharif" />
                                 </div>
                                 <div>
-                                    <label htmlFor="admin_name" className='text-black block'>Email</label>
-                                    <input type="text" name='admin_name' className='input-field mt-1' id='admin_name' value="ridoysharifbrmsrs@gmail.com" />
+                                    <label htmlFor="admin_name" className='dark-light-text block'>Email</label>
+                                    <input type="text" name='admin_name' className='input-field dark:bg-slate-800 dark:border-none mt-1' id='admin_name' value="ridoysharifbrmsrs@gmail.com" />
                                 </div>
                                 {/* <div>
                                     <label htmlFor="about_info" className='text-black block'>About yourself</label>

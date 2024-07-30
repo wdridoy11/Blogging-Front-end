@@ -23,12 +23,13 @@ const CreateCategory = () => {
                             <div>
                                 <form onSubmit={createCategory}>
                                     <div>
-                                        <label htmlFor="category_name" className='text-black'>Name</label>
-                                        <input type="text" name='category_name' className='w-full border p-3 rounded-md outline-none' id='category_name' placeholder='Enter Category name' required/>
+                                        <label htmlFor="category_name" className='dark-light-text'>Name</label>
+                                        <input type="text" name='category_name' className='w-full border p-3 rounded-md outline-none input-field ' id='category_name' placeholder='Enter Category name' required/>
+                                        {/* <input type="text" name='category_name' className='w-full border p-3 rounded-md outline-none input-field' id='category_name' placeholder='Enter Category name' required/> */}
                                     </div>
                                     <div className='mt-4'>
-                                        <label htmlFor="parent-category" className='text-black block'>Parent Category</label>
-                                        <select name="parent_category" id="parent_category"  className='border mt-1 w-full p-3 rounded-md outline-none text-base text-black'>
+                                        <label htmlFor="parent-category" className='dark-light-text block'>Parent Category</label>
+                                        <select name="parent_category" id="parent_category"  className='border mt-1 w-full p-3 rounded-md outline-none text-base dark-light-text bg-transparent'>
                                             <option className='py-2 block text-base text-black' value="none">None</option>
                                             <option className='py-2 block text-base text-black' value="Web Design">Web Design</option>
                                             <option className='py-2 block text-base text-black' value="Web Development">Web Development</option>

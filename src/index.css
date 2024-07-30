@@ -36,19 +36,19 @@ code {
         @apply dark-light-text border border-[#29c8e6] rounded-full hover:bg-[#29c8e6] hover:text-white duration-500 p-1.5;
     }
     .dashboard-link{
-        @apply py-3 px-3 mb-1 rounded-md text-black flex items-center gap-2;
+        @apply py-3 px-3 mb-1 rounded-md dark-light-text flex items-center gap-2;
     }
     .input-field{
-        @apply w-full border-b border-slate-200 p-3 outline-none mb-5;
+        @apply w-full border-b border-slate-200 p-3 outline-none mb-5 bg-white dark:bg-slate-700 dark-light-text;
     }
     .social-auth{
         @apply bg-slate-100 p-3 rounded-full text-blog-primary hover:bg-blog-primary hover:text-white duration-500;
     }
     .dashboard-details-area{
-        @apply bg-slate-100 p-10 rounded-lg;
+        @apply bg-slate-100 dark:bg-slate-700 p-10 rounded-lg;
     }
     .create-blog-input-field{
-        @apply w-full border p-3 rounded-md outline-none mt-1;
+        @apply w-full border p-3 rounded-md outline-none mt-1 dark:border-none text-slate-400 bg-white dark:bg-slate-800;
     }
     .dark-light-bg{
         @apply bg-white dark:bg-slate-900;

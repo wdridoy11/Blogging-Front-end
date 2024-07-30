@@ -4,7 +4,7 @@ import { FaEye, FaGithub, FaGoogle } from 'react-icons/fa'
 
 const SignUp = () => {
   return (
-    <div className='min-h-screen flex items-center'>
+    <div className='min-h-screen flex items-center dark-light-bg'>
         <div className='container'>
             <div>
                 <div className='border w-full mx-auto md:w-3/5 p-5  md:p-10 rounded-xl'>
@@ -14,16 +14,16 @@ const SignUp = () => {
                         <input type="email" name="sign-up-email" className='input-field' id="sign-up-email" placeholder='Enter your email' required/>
                         <div className='relative'>
                             <input type="password" name="sign-up-password" className='input-field' id="sign-up-password" placeholder='Password' required/>
-                            <button className='absolute right-5 bottom-7'><FaEye /></button>
+                            <button className='absolute right-5 bottom-7 dark-light-text'><FaEye /></button>
                         </div>
                         <div className='relative'>
                             <input type="password" name="sign-up-confirm-password" className='input-field' id="sign-up-confirm-password" placeholder='Confirm Password' required/>
-                            <button className='absolute right-5 bottom-7'><FaEye /></button>
+                            <button className='absolute right-5 bottom-7 dark-light-text'><FaEye /></button>
                         </div>
                         <div className='mt-2'>
                             <div className='flex items-center gap-2'>
                                 <input type="checkbox" name="remember-me" id="remember-me" />
-                                <label htmlFor="remember-me" className='text-slate-500'>Remember Me</label>
+                                <label htmlFor="remember-me" className='text-slate-500 dark:text-white'>Remember Me</label>
                             </div>
                         </div>
                         <input type="submit" className='blog-btn w-full mt-5 py-3 text-lg font-medium' value="Sign Up" />
@@ -38,7 +38,7 @@ const SignUp = () => {
                             </div>
                         </div>
                         <div className='text-center mt-5'>
-                            <p className='text-lg text-slate-500'>Have an account? <Link className="text-blog-primary" to="/login">Login</Link> </p>
+                            <p className='text-lg text-slate-500 dark:text-white'>Have an account? <Link className="text-blog-primary" to="/login">Login</Link> </p>
                         </div>
                     </div>
                 </div>

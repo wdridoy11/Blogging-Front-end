@@ -19,7 +19,7 @@ const CreateBlog = () => {
                          <form onSubmit={handleSubmit(onsubmit)}>
                               <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
                                   <div>
-                                      <label htmlFor="blog_title" className='text-black'>Blog Title</label>
+                                      <label htmlFor="blog_title" className='dark-light-text'>Blog Title</label>
                                       <input 
                                           type="text" 
                                           name='blog_title' 
@@ -32,14 +32,14 @@ const CreateBlog = () => {
                                       {/* <input type="text" name='blog-title' className='create-blog-input-field' id='blog-title' placeholder='Blog Title' required/> */}
                                   </div>
                                   <div>
-                                      <label htmlFor="blog-category" className='text-black'>Blog Category</label>
+                                      <label htmlFor="blog-category" className='dark-light-text'>Blog Category</label>
                                       <select name="blog-category" id="blog-category"  className='create-blog-input-field' required>
                                           <option className='py-2 block text-base text-[#8799ad]' value="">Web Design</option>
                                           <option className='py-2 block text-base text-[#8799ad]' value="">Web Development</option>
                                       </select>
                                   </div>
                                   <div>
-                                      <label htmlFor="blog_post_date" className='text-black'>Blog Date</label>
+                                      <label htmlFor="blog_post_date" className='dark-light-text'>Blog Date</label>
                                       <input 
                                           type="date" 
                                           name='blog_post_date' 
@@ -50,7 +50,7 @@ const CreateBlog = () => {
                                       {errors.blog_post_date?.type === 'required' && <p className='text-red-600 pl-3 mt-1' role="alert">Blog Date field is required</p>}
                                   </div>
                                   <div>
-                                      <label htmlFor="author_name" className='text-black'>Author Name</label>
+                                      <label htmlFor="author_name" className='dark-light-text'>Author Name</label>
                                       <input 
                                           type="text" 
                                           name='author_name' 
@@ -63,7 +63,7 @@ const CreateBlog = () => {
                                       {/* <input type="text" name="blog-author-name" className='create-blog-input-field bg-slate-300 cursor-not-allowed' id='blog-author-name' value="Ridoy" readOnly /> */}
                                   </div>
                                   <div>
-                                      <label htmlFor="author_email" className='text-black'>Author Name</label>
+                                      <label htmlFor="author_email" className='dark-light-text'>Author Name</label>
                                       <input 
                                           type="email" 
                                           name='author_email' 
@@ -75,7 +75,7 @@ const CreateBlog = () => {
                                       {/* <input type="email" name="blog-author-email" className='create-blog-input-field bg-slate-300 cursor-not-allowed' id='blog-author-email' value="ridoysharif@gmail.com" readOnly /> */}
                                   </div>
                                   <div>
-                                      <label htmlFor="author_email" className='text-black'>Author Name</label>
+                                      <label htmlFor="author_email" className='dark-light-text'>Author Name</label>
                                       <input 
                                           type="email" 
                                           name='author_email' 

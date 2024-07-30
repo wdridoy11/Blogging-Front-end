@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 
 const Home = () => {
   return (
-    <div className='py-16 dark'>
+    <div className='py-16 dark-light-bg'>
       <Helmet><title>Home</title></Helmet>
         <div className='container'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14'>

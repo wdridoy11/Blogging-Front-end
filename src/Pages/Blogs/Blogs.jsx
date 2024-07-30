@@ -19,7 +19,7 @@ const Blogs = () => {
                 </div>
                 {/* category and filter area */}
                 <div className='col-span-1'>
-                    <div className='border border-slate-200 dark:border-slate-700 rounded-md p-3 dark-light-bg'>
+                    <div className='dark-light-border rounded-md p-3 dark-light-bg'>
                         <div>
                             <div>
                                 <div className='flex items-center justify-between dark-light-bg rounded-r-md border border-slate-200 dark:border-slate-700'>

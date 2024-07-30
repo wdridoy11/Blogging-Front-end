@@ -4,7 +4,7 @@ import { FaEye, FaGithub, FaGoogle } from 'react-icons/fa'
 
 const Login = () => {
   return (
-    <div className='min-h-screen flex items-center'>
+    <div className='min-h-screen flex items-center dark-light-bg'>
         <div className='container'>
             <div>
                 <div className='border w-full mx-auto md:w-3/5 p-5  md:p-10 rounded-xl'>
@@ -13,12 +13,12 @@ const Login = () => {
                         <input type="email" name="login-email" className='input-field' id="login-email" placeholder='Enter your email' required/>
                         <div className='relative'>
                             <input type="password" name="login-password" className='input-field' id="login-password" placeholder='Enter your password' required/>
-                            <button className='absolute right-5 bottom-7'><FaEye /></button>
+                            <button className='absolute right-5 bottom-7 dark-light-text'><FaEye /></button>
                         </div>
                         <div className='flex justify-between items-center mt-7'>
                             <div className='flex items-center gap-2'>
                                 <input type="checkbox" name="remember-me" id="remember-me" />
-                                <label htmlFor="remember-me" className='text-slate-500'>Remember Me</label>
+                                <label htmlFor="remember-me" className='text-slate-500 dark:text-white'>Remember Me</label>
                             </div>
                             <div>
                                 <Link className="text-blog-primary">Forgot Password</Link>
@@ -36,7 +36,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div className='text-center mt-5'>
-                            <p className='text-lg text-slate-500'>Don't Have an account? <Link className="text-blog-primary" to="/sign-up"> Sign Up</Link> </p>
+                            <p className='text-lg text-slate-500 dark:text-white'>Don't Have an account? <Link className="text-blog-primary" to="/sign-up"> Sign Up</Link> </p>
                         </div>
                     </div>
                 </div>

@@ -17,11 +17,11 @@ const Dashboard = () => {
     console.log(isSidebarActive)
   }
 
-  let isAdmin = true;
-  let isUser = false;
+  let isAdmin = false;
+  let isUser = true;
 
   return (
-    <div className='min-h-screen md:flex'>
+    <div className='min-h-screen md:flex dark-light-bg'>
         <div className='bg-gray-100 w-full p-2 relative block md:hidden'>
             <div className='text-end pr-5'>
                 <button onClick={handleDashboardSidebar} className='bg-blog-primary p-2 rounded-md'>
@@ -37,7 +37,7 @@ const Dashboard = () => {
             'bg-gray-100 min-h-screen w-64 p-4 relative hidden md:block'
         }> */}
         {/* <div className={({ isSidebarActive }) =>`bg-gray-100 min-h-screen w-64 p-4 ${ isSidebarActive ? 'block' : 'hidden'}`}> */}
-        <div className='bg-gray-100 min-h-screen w-64 p-4 relative hidden md:block'>
+        <div className='bg-gray-100 dark:bg-slate-700 min-h-screen w-64 p-4 relative hidden md:block'>
             <div>
                 <div>
                     <img className='w-40 h-40 rounded-full object-cover mx-auto' src={img} alt="" />

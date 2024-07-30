@@ -20,7 +20,7 @@ const Header = () => {
 
 
   return (
-    <div className='bg-slate-200 py-3 dark:bg-slate-700'>
+    <div className='bg-slate-200 py-3 dark:bg-slate-800'>
         <div className='container'>
             <div className='flex items-center justify-between'>
                 <div>
