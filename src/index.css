@@ -30,7 +30,7 @@ code {
         color: #29C8E6;
     }
     .social-media-icon{
-        @apply text-xl bg-[#29c8e6] p-2 text-white rounded-md hover:bg-black duration-500;
+        @apply text-xl bg-blog-primary p-2 text-white rounded-md border border-[#29c8e6] hover:bg-black duration-500;
     }
     .blog-favorite{
         @apply dark-light-text border border-[#29c8e6] rounded-full hover:bg-[#29c8e6] hover:text-white duration-500 p-1.5;
@@ -63,12 +63,12 @@ code {
 
 @layer base{
   h1{
-     @apply text-2xl font-semibold;
+     @apply text-2xl font-semibold dark-light-text;
   }
   h2{
-      @apply text-xl;
+      @apply text-xl dark-light-text;
   }
   h3{
-      @apply text-lg;
+      @apply text-lg dark-light-text;
   }
 }

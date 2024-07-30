@@ -19,7 +19,7 @@ const BlogDetails = () => {
    }
 
   return (
-    <div className='py-20'>
+    <div className='py-20 dark-light-bg'>
         <div className='max-w-[1700px] mx-auto px-5'>
             <div className='mb-14'>
                 <img className='w-full h-[600px] object-cover object-center rounded-2xl' src={img} alt="Blog image" />
@@ -43,9 +43,9 @@ const BlogDetails = () => {
 
                     {/* blog description */}
                     <div className='mt-10'>
-                        <p className='text-base mb-3'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.</p>
-                        <p className='text-base mb-3'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.</p>
-                        <p className='text-base mb-3'>
+                        <p className='dark-light-text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.</p>
+                        <p className='dark-light-text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.</p>
+                        <p className='dark-light-text'>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat. 
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
@@ -77,8 +77,8 @@ const BlogDetails = () => {
                         <div className='grid md:grid-cols-2 gap-10'>
                             <div>
                                 <form onSubmit={handleComment} className='w-full'>
-                                    <label htmlFor="blog_comment" className='text-base block text-[#8799ad]'>Comment</label>
-                                    <textarea name="blog_comment" className='w-full border p-3 rounded-md outline-none' id="blog_comment" cols="30" rows="5" placeholder='Write Comment...'></textarea>
+                                    <label htmlFor="blog_comment" className='text-lg block text-[#8799ad] dark:text-white'>Comment</label>
+                                    <textarea name="blog_comment" className='w-full dark-light-border dark-light-bg p-3 rounded-md outline-none mt-2' id="blog_comment" cols="30" rows="5" placeholder='Write Comment...'></textarea>
                                     <input type="submit" className='blog-btn' value="Submit" />
                                 </form>
                             </div>
