@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./common.css";
-import "./Components/Header/DarkToggle"
 import { RouterProvider } from "react-router-dom";
 
 

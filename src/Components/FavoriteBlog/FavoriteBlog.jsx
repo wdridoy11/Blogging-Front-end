@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {FaHeart} from 'react-icons/fa';
 
 
 const FavoriteBlog = () => {
 
+  const [isFavorite,setIsFavorite] = useState(false)
   const handleFavoriteBlog=()=>{
-    console.log("Helo")
+    if(!isFavorite){
+      setIsFavorite(true);
+    }else{
+      setIsFavorite(false);
+    }
   }
 
   return (
     <>
-        <button onClick={handleFavoriteBlog} className='blog-favorite'>
+        <button onClick={handleFavoriteBlog} className={isFavorite ? "blog-favorite bg-blog-primary text-white":"blog-favorite"}>
             <FaHeart className='text-xs'></FaHeart>
         </button>
     </>
