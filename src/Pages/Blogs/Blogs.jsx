@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 
 const Blogs = () => {
   return (
-    <div className='py-20 dark:bg-black'>
+    <div className='py-20 dark:bg-slate-900'>
         <Helmet><title> Blogs </title></Helmet>
         <div className='container mx-auto px-5'>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-10'>
@@ -19,15 +19,15 @@ const Blogs = () => {
                 </div>
                 {/* category and filter area */}
                 <div className='col-span-1'>
-                    <div className='custom-shadow p-3'>
+                    <div className='border border-slate-200 dark:border-slate-700 rounded-md p-3 dark-light-bg'>
                         <div>
                             <div>
-                                <div className='flex items-center justify-between bg-white rounded-r-md shadow-lg'>
+                                <div className='flex items-center justify-between dark-light-bg rounded-r-md border border-slate-200 dark:border-slate-700'>
                                     <div>
-                                        <input type="search" name="blog-search" className='pl-4 py-2 rounded-l-md w-full outline-none' id="blog-search" placeholder='Search blog...' />
+                                        <input type="search" name="blog-search" className='pl-4 py-2 bg-transparent rounded-l-md w-full outline-none' id="blog-search" placeholder='Search blog...' />
                                     </div>
                                     <div>
-                                        <button className='bg-blog-primary text-white px-3 py-2.5 rounded-r-md hover:bg-black duration-500 cursor-pointer'>
+                                        <button className='bg-blog-primary text-white px-3 py-3 rounded-r-md hover:bg-black hover:dark:bg-white hover:dark:text-blog-primary duration-500 cursor-pointer'>
                                             <FaSearch className='text-xl '></FaSearch>
                                         </button>
                                     </div>
@@ -35,7 +35,7 @@ const Blogs = () => {
                             </div>
                             {/* Blog categories from components */}
                             <div className='mt-5'>
-                                <h3 className='text-xl font-medium mb-4'>Blog Categories</h3>
+                                <h3 className='text-xl dark-light-text font-medium mb-4'>Blog Categories</h3>
                                 <Categories />
                             </div>
 

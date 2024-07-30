@@ -1,12 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { FaSearch } from 'react-icons/fa';
 import BlogSave from '../BlogSave/BlogSave';
 import img from '../../Assets/Rectangle 1.png';
-import Categories from '../Categories/Categories';
+import RemoveBlog from '../RemoveBlog/RemoveBlog';
 import BlogPostInfo from '../BlogPostInfo/BlogPostInfo';
 import FavoriteBlog from '../FavoriteBlog/FavoriteBlog';
-import RemoveBlog from '../RemoveBlog/RemoveBlog';
 
 const BlogCard = () => {
     let remove = false
@@ -19,10 +17,10 @@ const BlogCard = () => {
                     <RemoveBlog />
                 </div>:""}
             </div>
-            <div className='p-4 rounded-b-md bg-white'>
+            <div className='p-4 rounded-b-md dark-light-bg'>
                 <div className='flex items-center justify-between'>
                     <div>
-                        <Link className='text-xl font-medium text-black mb-2 block' to={"/blog-details"}>I Love My Country</Link>
+                        <Link className='text-xl font-medium dark-light-text mb-2 block' to={"/blog-details"}>I Love My Country</Link>
                     </div>
                     {/* Blog save and favorite button */}
                     <div className='flex items-center gap-1'>

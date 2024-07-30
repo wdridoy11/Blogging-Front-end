@@ -18,7 +18,7 @@ code {
 
 @layer components{
     .blog-btn{
-        @apply text-white cursor-pointer inline-block border border-[#29c8e6] bg-blog-primary  font-medium text-center px-7 py-1.5 rounded-full hover:bg-black hover:dark:bg-white hover:dark:text-black hover:text-white duration-500;
+        @apply text-white cursor-pointer inline-block border border-[#29c8e6] bg-blog-primary  font-medium text-center px-7 py-1.5 rounded-full hover:bg-black hover:text-white duration-500;
     }
     .blog-description{
         @apply text-base font-normal dark:text-[#8799ad] text-slate-700;
@@ -30,10 +30,10 @@ code {
         color: #29C8E6;
     }
     .social-media-icon{
-        @apply text-xl bg-[#29c8e6] p-2 text-white rounded-md hover:bg-black duration-500
+        @apply text-xl bg-[#29c8e6] p-2 text-white rounded-md hover:bg-black duration-500;
     }
     .blog-favorite{
-        @apply text-black border border-[#29c8e6] rounded-full hover:bg-[#29c8e6] hover:text-white duration-500 p-1.5
+        @apply dark-light-text border border-[#29c8e6] rounded-full hover:bg-[#29c8e6] hover:text-white duration-500 p-1.5;
     }
     .dashboard-link{
         @apply py-3 px-3 mb-1 rounded-md text-black flex items-center gap-2;
@@ -49,6 +49,12 @@ code {
     }
     .create-blog-input-field{
         @apply w-full border p-3 rounded-md outline-none mt-1;
+    }
+    .dark-light-bg{
+        @apply bg-white dark:bg-slate-900;
+    }
+    .dark-light-text{
+        @apply text-black dark:text-white
     }
 }
 
