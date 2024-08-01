@@ -28,26 +28,26 @@
     {
         "author_name":"Sabbir",
         "author_email":"sabbir454@gmail.com",
-        "author_image":"https://avatars.githubusercontent.com/u/115138025?v=4",
+        "author_image":"https://static-01.daraz.com.bd/p/7ca24780e37b71392dc1109a9683b0d9.jpg_750x750.jpg_.webp",
         "author_profile_link":"https://github.com/wdridoy11",
         "blog_post_date":"27/7/2024",
-        "blog_image":"https://rehanax.com/wp-content/uploads/2022/12/best-gaming-laptop-model-entry-header-opt.jpg",
+        "blog_image":"https://static-01.daraz.com.bd/p/7ca24780e37b71392dc1109a9683b0d9.jpg_750x750.jpg_.webp",
         "blog_title":"React Js",
         "blog_description":"React is most popular javascript libary",
         "blog_category":["Web Development","Software Development"],
         "blog_like":0,
         "blog_comment":[
             {
-                "name":"Ratul",
-                "comment":"This blog is very importent to develop our knowledge."
+                "name":"Lubna",
+                "comment":"importent to develop our knowledge."
             },
             {
-                "name":"Nahid",
-                "comment":"This blog is very importent to develop our knowledge."
+                "name":"Ritu",
+                "comment":"develop our knowledge."
             },
             {
-                "name":"Shohel",
-                "comment":"This blog is very importent to develop our knowledge."
+                "name":"Rani",
+                "comment":"very importent to develop our knowledge."
             }
         ]
     }

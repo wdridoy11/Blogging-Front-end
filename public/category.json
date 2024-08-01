@@ -7,5 +7,19 @@
         "Software Development",
         "Video Editing"
         ]
+    },
+    {
+        "category_name":"Freelancing",
+        "category_item":15,
+        "inner_category":[
+            {
+                "inner_category_name":"Web Design",
+                "inner_category_item":2
+            },
+            {
+                "inner_category_name":"Web Development",
+                "inner_category_item":5
+            }
+        ]
     }
 ]

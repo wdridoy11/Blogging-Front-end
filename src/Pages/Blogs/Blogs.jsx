@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BlogCard from '../../Components/BlogCard/BlogCard'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 import Categories from '../../Components/Categories/Categories'
 import { Helmet } from 'react-helmet'
+import useBlog from '../../Hooks/useBlog'
 
 const Blogs = () => {
+
+    const [blogs] = useBlog();
+    // console.log("blog",blogs)
+
+
   return (
     <div className='py-20 dark:bg-slate-900'>
         <Helmet><title> Blogs </title></Helmet>
@@ -14,7 +20,7 @@ const Blogs = () => {
                 {/* blog list area */}
                 <div className='col-span-3'>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
-                        <BlogCard />
+                        {blogs?.map((blog)=><BlogCard blog={blog} />)}
                     </div>
                 </div>
                 {/* category and filter area */}
