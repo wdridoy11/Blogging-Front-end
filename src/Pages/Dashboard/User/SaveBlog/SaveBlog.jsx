@@ -8,7 +8,7 @@ const SaveBlog = () => {
             <div>
                 <h1>Save Blog</h1>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-8'>
-                  <BlogCard />
+                  {/* <BlogCard /> */}
                 </div>
             </div>
         </div>

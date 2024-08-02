@@ -58,7 +58,7 @@ const AuthorProfile = () => {
                     <h1 class="text-2xl font-semibold mb-7 dark-light-text">All Blog</h1>
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-10'>
-                    <BlogCard />
+                    {/* <BlogCard /> */}
                 </div>
             </div>
         </div>

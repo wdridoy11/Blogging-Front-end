@@ -1,6 +1,7 @@
 [
     {
-        "author_name":"Ridoy Sharif",
+        "author_first_name":"Ridoy",
+        "author_last_name":"Sharif",
         "author_email":"ridoysharifbrmsrs@gmail.com",
         "author_image":"https://avatars.githubusercontent.com/u/115138025?v=4",
         "author_profile_link":"https://github.com/wdridoy11",
@@ -26,29 +27,31 @@
         ]
     },
     {
-        "author_name":"Sabbir",
-        "author_email":"sabbir454@gmail.com",
-        "author_image":"https://static-01.daraz.com.bd/p/7ca24780e37b71392dc1109a9683b0d9.jpg_750x750.jpg_.webp",
-        "author_profile_link":"https://github.com/wdridoy11",
-        "blog_post_date":"27/7/2024",
-        "blog_image":"https://static-01.daraz.com.bd/p/7ca24780e37b71392dc1109a9683b0d9.jpg_750x750.jpg_.webp",
-        "blog_title":"React Js",
-        "blog_description":"React is most popular javascript libary",
-        "blog_category":["Web Development","Software Development"],
-        "blog_like":0,
+        "author_first_name":"Sabbir",
+        "author_last_name":"Hossain",
+        "author_email":"sabbir@gmail.com",
+        "author_image":"https://avatars.githubusercontent.com/u/77435797?v=4",
+        "author_profile_link":"https://github.com/sabbir",
+        "blog_post_date":"27/9/2024",
+        "blog_image":"https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg",
+        "blog_title":"How to became a Programer development skills",
+        "blog_description":" high quality stock images, videos and music shared by our talented community.",
+        "blog_category":["Web Design","Software Development"],
+        "blog_like":10,
         "blog_comment":[
             {
-                "name":"Lubna",
-                "comment":"importent to develop our knowledge."
+                "name":"Lina",
+                "comment":"This blog is very importent to develop our knowledge."
             },
             {
-                "name":"Ritu",
-                "comment":"develop our knowledge."
+                "name":"Ratual",
+                "comment":"This blog is very importent to develop our knowledge."
             },
             {
-                "name":"Rani",
-                "comment":"very importent to develop our knowledge."
+                "name":"Raja",
+                "comment":"This blog is very importent to develop our knowledge."
             }
         ]
     }
+
 ]

@@ -9,12 +9,12 @@ const Home = () => {
       <Helmet><title>Home</title></Helmet>
         <div className='container'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14'>
+                {/* <BlogCard />
                 <BlogCard />
                 <BlogCard />
                 <BlogCard />
                 <BlogCard />
-                <BlogCard />
-                <BlogCard />
+                <BlogCard /> */}
             </div>
         </div>
         <Subscribe />

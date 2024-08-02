@@ -9,9 +9,9 @@ const AllBlogs = () => {
                 <h1>All Blogs</h1>
                 <div>
                     <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 mt-8'>
+                       {/* <BlogCard />
                        <BlogCard />
-                       <BlogCard />
-                       <BlogCard />
+                       <BlogCard /> */}
                     </div>
                 </div>
             </div>

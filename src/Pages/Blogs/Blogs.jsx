@@ -11,7 +11,6 @@ const Blogs = () => {
     const [blogs] = useBlog();
     // console.log("blog",blogs)
 
-
   return (
     <div className='py-20 dark:bg-slate-900'>
         <Helmet><title> Blogs </title></Helmet>
@@ -20,7 +19,7 @@ const Blogs = () => {
                 {/* blog list area */}
                 <div className='col-span-3'>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
-                        {blogs?.map((blog)=><BlogCard blog={blog} />)}
+                        {blogs?.map((blog)=><BlogCard key={blog._id} blog={blog} />)}
                     </div>
                 </div>
                 {/* category and filter area */}

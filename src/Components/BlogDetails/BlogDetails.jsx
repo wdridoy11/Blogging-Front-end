@@ -1,16 +1,17 @@
 import React from 'react'
 import img from '../../Assets/Rectangle 1.png';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { FaLinkedin } from 'react-icons/fa';
 import BlogPostInfo from '../BlogPostInfo/BlogPostInfo';
 import FavoriteBlog from '../FavoriteBlog/FavoriteBlog';
 import BlogSave from '../BlogSave/BlogSave';
-import BlogCard from '../BlogCard/BlogCard';
 import SocialMedia from '../SocialMedia/SocialMedia';
 import BlogComment from '../BlogComment/BlogComment';
 
 const BlogDetails = () => {
 
+    const blogData = useLoaderData();
+    const { _id, blog_title, blog_image, blog_description } = blogData;
 
    const handleComment = (event) => {
         event.preventDefault();
@@ -22,18 +23,18 @@ const BlogDetails = () => {
     <div className='py-20 dark-light-bg'>
         <div className='max-w-[1700px] mx-auto px-5'>
             <div className='mb-14'>
-                <img className='w-full h-[600px] object-cover object-center rounded-2xl' src={img} alt="Blog image" />
+                <img className='w-full h-[600px] object-cover object-center rounded-2xl' src={blog_image} alt="Blog image" />
             </div>
             <div className='container mx-auto'>
                 <div>
                     <div>
-                        <h1>I Love My Country</h1>
+                        <h1>{blog_title}</h1>
                     </div>
                     {/* blog post information */}
                     <div className='flex gap-5 mt-2'>
                         {/* blog post info from conponents */}
                         <div>
-                            <BlogPostInfo />
+                            <BlogPostInfo blogInfo={blogData} />
                         </div>
                         <div className='flex gap-2'>
                             <FavoriteBlog />
@@ -43,22 +44,7 @@ const BlogDetails = () => {
 
                     {/* blog description */}
                     <div className='mt-10'>
-                        <p className='dark-light-text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.</p>
-                        <p className='dark-light-text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.</p>
-                        <p className='dark-light-text'>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat. 
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            <br/><br/>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum aspernatur cupiditate officia quaerat incidunt placeat atque totam dicta fugit ipsam, iste eaque veniam quae distinctio, tempora, impedit autem alias repellat.
-                        </p>
+                        <p className='dark-light-text'>{blog_description}</p>
                     </div>
                 </div>
 
@@ -106,9 +92,9 @@ const BlogDetails = () => {
                 </div>
                 <div className='mt-5'>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10'>
+                        {/* <BlogCard />
                         <BlogCard />
-                        <BlogCard />
-                        <BlogCard />
+                        <BlogCard /> */}
                     </div>
                 </div>
             </div>

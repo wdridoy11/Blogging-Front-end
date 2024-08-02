@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const BlogPostInfo = ({blogInfo}) => {
     // this data form blog card components
-    const {author_name,blog_post_date,blog_comment} = blogInfo;
-
+    const {author_first_name,author_last_name, blog_post_date, blog_comment, author_profile_link} = blogInfo;
+    let author_name = author_first_name + " " + author_last_name?.charAt(0) +".";
   return (
     <div className='flex gap-5'>
         {/* author name */}
-        <Link className='text-blog-primary duration-500 flex items-center gap-2' to="/author-profile">
+        <Link className='text-blog-primary duration-500 flex items-center gap-2' to={author_profile_link}>
             <p className='text-sm text-blog-primary'><FaUser /></p>
             <p className='text-sm'>{author_name}</p>
         </Link>

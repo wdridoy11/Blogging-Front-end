@@ -1,34 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import BlogSave from '../BlogSave/BlogSave';
-import img from '../../Assets/Rectangle 1.png';
 import RemoveBlog from '../RemoveBlog/RemoveBlog';
 import BlogPostInfo from '../BlogPostInfo/BlogPostInfo';
 import FavoriteBlog from '../FavoriteBlog/FavoriteBlog';
 
 const BlogCard = ({blog}) => {
-    // console.log(blog)
-    const {
-        _id,
-        blog_like,
-        blog_title,
-        blog_image,
-        author_name,
-        author_image,
-        author_email,
-        blog_comment,
-        blog_category,
-        blog_post_date,
-        blog_description,
-        author_profile_link,
-        } = blog;
+
+    const { _id, blog_title, blog_image, blog_description } = blog;
+    // TODO: remove button
     let remove = false;
 
   return (
     <div>
-        <div className='rounded-2xl custom-shadow'>
+        <div className='rounded-2xl custom-shadow' key={_id}>
             <div className='relative'>
                 <img className='w-full h-[250px] object-cover object-top rounded-t-md' src={blog_image} alt="blog image" />
+                {/* blog remove system only visible dashboard */}
                 {remove ? <div className='absolute top-5 right-5'>
                     <RemoveBlog />
                 </div>:""}
@@ -37,7 +25,7 @@ const BlogCard = ({blog}) => {
                 <div className='flex items-center justify-between'>
                     <div>
                         <Link className='text-xl font-medium dark-light-text mb-2 block' to={"/blog-details"}>
-                            {blog_title?.length > 50 ? <>{blog_title.slice(0,50)}...</> : blog_title }
+                            {blog_title?.length > 33 ? <>{blog_title.slice(0,33)}...</> : blog_title }
                         </Link>
                     </div>
                     {/* Blog save and favorite button */}
@@ -54,11 +42,13 @@ const BlogCard = ({blog}) => {
                 </div>
                 {/* blog short description */}
                 <div className='mt-3'>
-                    <p className='blog-description'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum nemo consectetur rem culpa a provident...</p>
+                    <p className='blog-description'>
+                        {blog_description?.length > 90 ? <>{blog_description.slice(0,90)}...</> : blog_description }
+                    </p>
                 </div>
                 {/* blog Read More btn */}
                 <div>
-                    <Link className='blog-btn mt-2' to={"/blog-details"}>Read More</Link>
+                    <Link className='blog-btn mt-2' to={`/blog-details/${_id}`}>Read More</Link>
                 </div>
             </div>
         </div>
