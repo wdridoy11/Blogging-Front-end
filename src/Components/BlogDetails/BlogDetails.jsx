@@ -80,7 +80,7 @@ const BlogDetails = () => {
                     </div>
                     {/* Prople Comment */}
                     <div className='mt-10'>
-                        <BlogComment />
+                        <BlogComment blogComment={blogData} />
                     </div>
                 </div>
             </div>
