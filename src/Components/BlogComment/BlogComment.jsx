@@ -3,7 +3,6 @@ import React from 'react'
 const BlogComment = ({blogComment}) => {
 
     const {blog_comment} = blogComment;
-    console.log(blog_comment)
 
   return (
     <div>

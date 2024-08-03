@@ -1,20 +1,24 @@
-import React, { useEffect } from 'react'
-import BlogCard from '../../Components/BlogCard/BlogCard'
+import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
-import Categories from '../../Components/Categories/Categories'
-import { Helmet } from 'react-helmet'
 import useBlog from '../../Hooks/useBlog'
+import BlogCard from '../../Components/BlogCard/BlogCard'
+import Categories from '../../Components/Categories/Categories'
 
 const Blogs = () => {
 
     const [blogs] = useBlog();
-    // console.log("blog",blogs)
 
   return (
-    <div className='py-20 dark:bg-slate-900'>
+    <div className='pb-20 pt-5 dark:bg-slate-900'>
         <Helmet><title> Blogs </title></Helmet>
         <div className='container mx-auto px-5'>
+            <div className='flex items-center gap-1 mb-2 text-[#8799ad] pb-3'>
+                <Link className='hover:text-blog-primary duration-500' to={"/"}>Home</Link>
+                <p className='text-sm'>/</p>
+                <p>Blogs</p>
+            </div>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-10'>
                 {/* blog list area */}
                 <div className='col-span-3'>

@@ -6,7 +6,7 @@ import BlogPostInfo from '../BlogPostInfo/BlogPostInfo';
 import FavoriteBlog from '../FavoriteBlog/FavoriteBlog';
 
 const BlogCard = ({blog}) => {
-
+    
     const { _id, blog_title, blog_image, blog_description } = blog;
     // TODO: remove button
     let remove = false;
@@ -31,7 +31,7 @@ const BlogCard = ({blog}) => {
                     {/* Blog save and favorite button */}
                     <div className='flex items-center gap-1'>
                         {/* Favorite Blog button */}
-                        <FavoriteBlog />
+                        <FavoriteBlog favoriteBlog={blog}  />
                         {/* Blog save Button */}
                         <BlogSave />
                     </div>

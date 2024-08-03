@@ -11,7 +11,7 @@ import BlogComment from '../BlogComment/BlogComment';
 const BlogDetails = () => {
 
     const blogData = useLoaderData();
-    const { _id, blog_title, blog_image, blog_description } = blogData;
+    const { _id, blog_title, blog_image, blog_description, blog_category } = blogData;
 
    const handleComment = (event) => {
         event.preventDefault();
@@ -20,8 +20,15 @@ const BlogDetails = () => {
    }
 
   return (
-    <div className='py-20 dark-light-bg'>
+    <div className='pb-20 pt-5 dark-light-bg'>
         <div className='max-w-[1700px] mx-auto px-5'>
+            <div className='flex items-center gap-1 mb-2 text-[#8799ad] pb-3'>
+                <Link className='hover:text-blog-primary duration-500' to={"/"}>Home</Link>
+                <p className='text-sm'>/</p>
+                <Link className='hover:text-blog-primary duration-500' to={"/blogs"}>Blogs</Link>
+                <p className='text-sm'>/</p>
+                <p>{blog_title}</p>
+            </div>
             <div className='mb-14'>
                 <img className='w-full h-[600px] object-cover object-center rounded-2xl' src={blog_image} alt="Blog image" />
             </div>
@@ -29,6 +36,7 @@ const BlogDetails = () => {
                 <div>
                     <div>
                         <h1>{blog_title}</h1>
+                        { blog_category.map((category)=><p>{category}</p>)}
                     </div>
                     {/* blog post information */}
                     <div className='flex gap-5 mt-2'>
@@ -37,7 +45,7 @@ const BlogDetails = () => {
                             <BlogPostInfo blogInfo={blogData} />
                         </div>
                         <div className='flex gap-2'>
-                            <FavoriteBlog />
+                            <FavoriteBlog favoriteBlog={blogData}  />
                             <BlogSave />
                         </div>
                     </div>

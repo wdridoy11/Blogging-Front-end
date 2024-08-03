@@ -1,18 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { FaEye, FaGithub, FaGoogle } from 'react-icons/fa'
+import { AuthContext } from '../../Providers/AuthProvider'
 
 const Login = () => {
+
+    const {userSignIn} = useContext(AuthContext);
+
+    const handleLogin =(event)=>{
+        event.preventDefault();
+        let email = event.target.login_email.value;
+        let password = event.target.login_password.value;
+        userSignIn(email, password)
+        .then((res)=>{
+
+        })
+        .catch((err)=>{
+            console.log(err.message);
+        })
+    }
+
+
   return (
     <div className='min-h-screen flex items-center dark-light-bg'>
         <div className='container'>
             <div>
                 <div className='border w-full mx-auto md:w-3/5 p-5  md:p-10 rounded-xl'>
                     <h1 className='text-center mb-10 text-3xl'>Login</h1>
-                    <form>
-                        <input type="email" name="login-email" className='input-field' id="login-email" placeholder='Enter your email' required/>
+                    <form onSubmit={handleLogin}>
+                        <input type="email" name="login_email" className='input-field' id="login_email" placeholder='Enter your email' required/>
                         <div className='relative'>
-                            <input type="password" name="login-password" className='input-field' id="login-password" placeholder='Enter your password' required/>
+                            <input type="password" name="login_password" className='input-field' id="login_password" placeholder='Enter your password' required/>
                             <button className='absolute right-5 bottom-7 dark-light-text'><FaEye /></button>
                         </div>
                         <div className='flex justify-between items-center mt-7'>
