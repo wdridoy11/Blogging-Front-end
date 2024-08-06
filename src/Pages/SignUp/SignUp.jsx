@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaEye, FaGithub, FaGoogle } from 'react-icons/fa'
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const {createUserUsingEmail, userProfileUpdate} = useContext(AuthContext);
     const [confirmPasswordErro,setConfirmPasswordErro] = useState(false);
+    const navigate = useNavigate();
     const {register, handleSubmit, formState: {errors}} = useForm ();
-
 
     const onsubmit = (data) => {
         let firstName = data?.signUpFirstName;
@@ -25,18 +26,42 @@ const SignUp = () => {
                 userProfileUpdate(fullName,)
                 .then((res)=>{
                     // user data send data base
-                    const saveUser = {firstName: firstName, lastName: lastName, email:email, image:user?.photoURL};
-                    // fetch(`${process.env.REACT_APP_API_URL}/user`,{
-                    //     method: 'POST',
-                    //     headers: {'Content-Type': 'application/json'},
-                    //     body: JSON.stringify(saveUser)
-                    // })
-                    // .then((respons)=>respons.json())
-                    // .then((data)=>{
-                    //     console.log(data)
-                    // })
-                })
+                    const saveUser = {
+                        firstName: firstName, 
+                        lastName: lastName, 
+                        email:email, 
+                        image:user?.photoURL
+                    };
+                    fetch(`${process.env.REACT_APP_API_URL}/user`,{
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(saveUser)
+                    })
+                    .then((respons)=>respons.json())
+                    .then((data)=>{
+                        // if account created successfully then show one popup and redirect home page
+                        if(data.insertedId){
+                            Swal.fire({
+                                title: "Congratulations!",
+                                text: "Account created successful",
+                                icon: "success"
+                            });
+                            
+                            setTimeout(() => {
+                                if(data.insertedId){
+                                    navigate("/");
+                                }
+                            }, 2000);
 
+                        }
+                    })
+                    .catch((err)=>{
+                        console.log(err.message)
+                    });
+                })
+                .catch((err)=>{
+                    console.log(err.message)
+                })
             })
             .catch((err)=>{
                 console.log(err.message)
