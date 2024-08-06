@@ -2,7 +2,7 @@ import React from 'react'
 
 const BlogComment = ({blogComment}) => {
 
-    const {blog_comment} = blogComment;
+    const {blog_comment,_id} = blogComment;
 
   return (
     <div>

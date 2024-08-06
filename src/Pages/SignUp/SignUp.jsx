@@ -5,20 +5,45 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const SignUp = () => {
-    const {createUserUsingEmail} = useContext(AuthContext)
+    const {createUserUsingEmail, userProfileUpdate} = useContext(AuthContext);
     const [confirmPasswordErro,setConfirmPasswordErro] = useState(false);
     const {register, handleSubmit, formState: {errors}} = useForm ();
 
+
     const onsubmit = (data) => {
-        let name = data.signUpName;
-        let email = data.signUpEmail;
+        let firstName = data?.signUpFirstName;
+        let lastName = data?.signUpLastName;
+        let fullName = firstName + " " + lastName;
+        let email = data?.signUpEmail;
         let password = data.signUpPassword;
         let confirmPassword = data.signUpConfirmPassword;
-        if(password !== confirmPassword){
+        // password and confirm password check and create an account
+        if(password === confirmPassword){
+            createUserUsingEmail(email,password)
+            .then((res)=>{
+                const user = res.user;
+                userProfileUpdate(fullName,)
+                .then((res)=>{
+                    // user data send data base
+                    const saveUser = {firstName: firstName, lastName: lastName, email:email, image:user?.photoURL};
+                    // fetch(`${process.env.REACT_APP_API_URL}/user`,{
+                    //     method: 'POST',
+                    //     headers: {'Content-Type': 'application/json'},
+                    //     body: JSON.stringify(saveUser)
+                    // })
+                    // .then((respons)=>respons.json())
+                    // .then((data)=>{
+                    //     console.log(data)
+                    // })
+                })
+
+            })
+            .catch((err)=>{
+                console.log(err.message)
+            })
+        }else{
             setConfirmPasswordErro(!false);
         }
-        console.log(data)
-        createUserUsingEmail()
     }
 
   return (
@@ -30,13 +55,24 @@ const SignUp = () => {
                     <form onSubmit={handleSubmit(onsubmit)}>
                         <input 
                             type="text" 
-                            name='signUpName' 
-                            id='signUpName' 
-                            {...register("signUpName",{required: true})}
-                            placeholder='Enter your name'
+                            name='signUpFirstName' 
+                            id='signUpFirstName' 
+                            {...register("signUpFirstName",{required: true})}
+                            placeholder='First name'
                             className="input-field" 
                         />
-                        {errors.signUpName?.type === 'required' && <p className='text-red-600 pl-3 mt-1' role="alert">Name field is required</p>}
+                        {errors.signUpFirstName?.type === 'required' && <p className='text-red-600 pl-3 mt-1' role="alert">First Name field is required</p>}
+                        
+                        <input 
+                            type="text" 
+                            name='signUpLastName' 
+                            id='signUpLastName' 
+                            {...register("signUpLastName",{required: true})}
+                            placeholder='Last name'
+                            className="input-field" 
+                        />
+                        {errors.signUpLastName?.type === 'required' && <p className='text-red-600 pl-3 mt-1' role="alert">Last Name field is required</p>}
+                        
                         <input 
                             type="email" 
                             name='signUpEmail' 
@@ -65,6 +101,7 @@ const SignUp = () => {
                             className="input-field" 
                         />
                         {confirmPasswordErro && <p className='text-red-600 pl-3 mt-1' role="alert">Password Not Match. Please try again</p>}
+                       
                         {/* {errors.signUpConfirmPassword?.type === 'required' && <p className='text-red-600 pl-3 mt-1' role="alert">Password Not Match</p>} */}
 
                         <div className='mt-2'>

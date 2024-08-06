@@ -5,19 +5,19 @@ export const AuthContext = createContext(null);
 
 const AuthProvider=({children})=>{
     const auth = getAuth(app);
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     // create user using email and password fireabase
     const createUserUsingEmail=(email, password)=>{
         setLoading(true);
-        createUserWithEmailAndPassword(auth,email,password)
+        return createUserWithEmailAndPassword(auth,email,password)
     }
 
     // user sign in using email and password
     const userSignIn = (email, password) =>{
         setLoading(true);
-        signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     // user create account using google account
@@ -28,7 +28,7 @@ const AuthProvider=({children})=>{
     }
 
     // user profile update using name and photo
-    const userProfileUpdate =(name, photo)=>{
+    const userProfileUpdate =(name, photo="https://cdn-icons-png.flaticon.com/512/6522/6522516.png")=>{
         return updateProfile(auth.currentUser,{
             displayName: name,
             photoURL: photo,
@@ -50,6 +50,8 @@ const AuthProvider=({children})=>{
     }
 
     const userInfo ={
+        user,
+        loading,
         userSignIn,
         userSignOut,
         userProfileUpdate,

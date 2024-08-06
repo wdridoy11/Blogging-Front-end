@@ -20,7 +20,7 @@ const BlogDetails = () => {
    }
 
   return (
-    <div className='pb-20 pt-5 dark-light-bg'>
+    <div className='pb-20 pt-5 dark-light-bg' key={_id}>
         <div className='max-w-[1700px] mx-auto px-5'>
             <div className='flex items-center gap-1 mb-2 text-[#8799ad] pb-3'>
                 <Link className='hover:text-blog-primary duration-500' to={"/"}>Home</Link>
