@@ -8,11 +8,12 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const SignUp = () => {
     const [confirmPasswordErro,setConfirmPasswordErro] = useState(false);
     const [error, setError] = useState();
-    const {createUserUsingEmail, userProfileUpdate,user} = useContext(AuthContext);
+    const { createUserUsingEmail, userProfileUpdate } = useContext(AuthContext);
     const navigate = useNavigate();
     const {register, handleSubmit, formState: {errors}} = useForm ();
     
     const onsubmit = (data) => {
+
         // data get from signup form
         let firstName = data?.signUpFirstName;
         let lastName = data?.signUpLastName;
@@ -26,7 +27,6 @@ const SignUp = () => {
             createUserUsingEmail(email,password)
             .then((res)=>{
                 const user = res.user;
-                console.log("signUp successful", user);
                 userProfileUpdate(fullName,)
                 .then((res)=>{
                     // user data send data base

@@ -1,25 +1,34 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate } from 'react-router-dom'
 import { FaEye, FaGithub, FaGoogle } from 'react-icons/fa'
 import { AuthContext } from '../../Providers/AuthProvider'
+import Swal from 'sweetalert2'
 
 const Login = () => {
 
     const {userSignIn} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogin =(event)=>{
         event.preventDefault();
         let email = event.target.login_email.value;
         let password = event.target.login_password.value;
+        //  user sign in
         userSignIn(email, password)
         .then((res)=>{
-            console.log(res)
+            Swal.fire({
+                title: "Congratulations!",
+                text: "Login successful",
+                icon: "success"
+            })
+            setTimeout(() => {
+                    navigate("/");
+            }, 2000);
         })
         .catch((err)=>{
             console.log(err.message);
         })
     }
-
 
   return (
     <div className='min-h-screen flex items-center dark-light-bg'>

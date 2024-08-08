@@ -8,17 +8,18 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Header = () => {
 
     const {user,userSignOut} = useContext(AuthContext);
+
     // userLogOut
     const userLogOut = ()=>{
         userSignOut()
         .then((result)=>{
             const user = result.user;
-            console.log(user)
         })
         .catch((error)=>{
           console.log(error.message)
         })
     }
+
     // dark and light mode handle
     const toggleDarkMode = () =>{
         if(localStorage.theme === undefined){

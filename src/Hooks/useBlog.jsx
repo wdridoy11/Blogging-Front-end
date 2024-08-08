@@ -10,7 +10,6 @@ const useBlog = () => {
         queryKey: ["blogs"],
         queryFn : async () =>{
             const res = await axiosSecure(`/blogs`);
-            console.log(res.data)
             return res.data;
         }
     })
