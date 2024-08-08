@@ -8,12 +8,18 @@ import useFavorite from '../../Hooks/useFavorite';
 const FavoriteBlog = ({favoriteBlog}) => {
 
   const {user} = useContext(AuthContext);
+  // favorite data load form useFavorite hook
   const [favorite,refetch] = useFavorite();
+
+  // BLog author match authored you can not add favorite blog
+  const blogAuthorMatch = favorite.find((item)=>item?.blog_id === favoriteBlog?._id && item?.author_email === user?.email);
+
   // database favorite and user information match
   const blogUserMatch = favorite.find((item)=>item?.blog_id === favoriteBlog?._id && item?.user_email === user?.email);
 
+  // Favorite blog handle 
   const handleFavoriteBlog =(favoriteInfo)=>{
-      const blogInfo ={blog_id:favoriteInfo?._id, user_email:user?.email};
+      const blogInfo ={blog_id:favoriteInfo?._id,author_email:favoriteInfo?.author_email, user_email:user?.email};
       // If save favorite blog match show one alert message otherwise add favorite blog
       if(blogUserMatch){
         Swal.fire({
@@ -23,33 +29,40 @@ const FavoriteBlog = ({favoriteBlog}) => {
           showConfirmButton: false,
           timer: 1500
         })
+      }else if(blogAuthorMatch){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'You are authored you can not add favorite blog',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }else{
-        // post favorite blog send database
-        if(user && user?.email){
-            fetch(`${process.env.REACT_APP_API_URL}/favorite`,{
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(blogInfo)
-            })
-            .then((respons)=>respons.json())
-            .then(((data)=>{
-                refetch(); // instand a refresh
-                if(data.insertedId){
-                  Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Favorite blog added successfully",
-                    showConfirmButton: false,
-                    timer: 1000
-                  });
-                }
-            }))
-            .catch((err)=>{
-                console.log(err.message)
-            })
-         }
-          
-      }    
+          // post favorite blog send database
+          if(user && user?.email){
+              fetch(`${process.env.REACT_APP_API_URL}/favorite`,{
+                  method: 'POST',
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify(blogInfo)
+              })
+              .then((respons)=>respons.json())
+              .then(((data)=>{
+                  refetch(); // instand a refresh
+                  if(data.insertedId){
+                    Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: "Favorite blog added successfully",
+                      showConfirmButton: false,
+                      timer: 1000
+                    });
+                  }
+              }))
+              .catch((err)=>{
+                  console.log(err.message)
+              })
+          }
+        }    
   }
 
   return (
