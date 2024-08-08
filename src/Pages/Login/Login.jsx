@@ -13,7 +13,7 @@ const Login = () => {
         let password = event.target.login_password.value;
         userSignIn(email, password)
         .then((res)=>{
-
+            console.log(res)
         })
         .catch((err)=>{
             console.log(err.message);

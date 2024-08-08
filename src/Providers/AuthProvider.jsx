@@ -5,7 +5,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider=({children})=>{
     const auth = getAuth(app);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
 
     // create user using email and password fireabase
@@ -35,19 +35,23 @@ const AuthProvider=({children})=>{
         })
     }
 
-    //  user acive check
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth,currentUser=>{
-            setUser(currentUser)
-            setLoading(false)
-        })
-        return unSubscribe();
-    },[])
+  
 
     // user sing out
     const userSignOut=()=>{
        return signOut(auth)
     }
+
+    //  user acive check
+    useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth,currentUser=>{
+            setUser(currentUser);
+            setLoading(false);
+        })
+        return ()=>{
+            return unSubscribe();
+        }
+    },[])
 
     const userInfo ={
         user,

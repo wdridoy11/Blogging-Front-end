@@ -1,28 +1,32 @@
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FaEye, FaGithub, FaGoogle } from 'react-icons/fa'
+import { FaGithub, FaGoogle } from 'react-icons/fa'
 import { useForm } from 'react-hook-form';
-import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const SignUp = () => {
-    const {createUserUsingEmail, userProfileUpdate} = useContext(AuthContext);
     const [confirmPasswordErro,setConfirmPasswordErro] = useState(false);
+    const [error, setError] = useState();
+    const {createUserUsingEmail, userProfileUpdate,user} = useContext(AuthContext);
     const navigate = useNavigate();
     const {register, handleSubmit, formState: {errors}} = useForm ();
-
+    
     const onsubmit = (data) => {
+        // data get from signup form
         let firstName = data?.signUpFirstName;
         let lastName = data?.signUpLastName;
         let fullName = firstName + " " + lastName;
         let email = data?.signUpEmail;
         let password = data.signUpPassword;
         let confirmPassword = data.signUpConfirmPassword;
+
         // password and confirm password check and create an account
         if(password === confirmPassword){
             createUserUsingEmail(email,password)
             .then((res)=>{
                 const user = res.user;
+                console.log("signUp successful", user);
                 userProfileUpdate(fullName,)
                 .then((res)=>{
                     // user data send data base
@@ -64,7 +68,7 @@ const SignUp = () => {
                 })
             })
             .catch((err)=>{
-                console.log(err.message)
+                setError(err.message);
             })
         }else{
             setConfirmPasswordErro(!false);
@@ -107,15 +111,17 @@ const SignUp = () => {
                             className="input-field" 
                         />
                         {errors.signUpEmail?.type === 'required' && <p className='text-red-600 pl-3 mt-1' role="alert">Email field is required</p>}
-                        <input 
-                            type="password" 
-                            name='signUpPassword' 
-                            id='signUpPassword' 
-                            {...register("signUpPassword",{required: true})}
-                            placeholder='Enter you password'
-                            className="input-field" 
-                        />
-                        {errors.signUpPassword?.type === 'required' && <p className='text-red-600 pl-3 mt-1' role="alert">Password field is required</p>}
+                        <div>
+                            <input 
+                                type="password" 
+                                name='signUpPassword' 
+                                id='signUpPassword' 
+                                {...register("signUpPassword",{required: true})}
+                                placeholder='Enter you password'
+                                className="input-field" 
+                            />
+                            {errors.signUpPassword?.type === 'required' && <p className='text-red-600 pl-3 mt-1' role="alert">Password field is required</p>}
+                        </div>
                         
                         <input 
                             type="password" 
@@ -135,6 +141,7 @@ const SignUp = () => {
                                 <label htmlFor="rememberMe" className='text-slate-500 dark:text-white'>Remember Me</label>
                             </div>
                         </div>
+                        {error && <p className='text-red-600 pl-3 mt-1' role="alert">{error}</p>}
                         <input type="submit" className='blog-btn w-full mt-5 py-3 text-lg font-medium' value="Sign Up" />
                     </form>
                     <div>

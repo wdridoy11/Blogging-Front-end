@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaSun } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 import img from '../../Assets/Rectangle 27.png';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Header = () => {
 
+    const {user,userSignOut} = useContext(AuthContext);
+    // userLogOut
+    const userLogOut = ()=>{
+        userSignOut()
+        .then((result)=>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch((error)=>{
+          console.log(error.message)
+        })
+    }
+    // dark and light mode handle
     const toggleDarkMode = () =>{
         if(localStorage.theme === undefined){
             localStorage.theme = 'dark';
@@ -34,8 +48,12 @@ const Header = () => {
                 <div className='flex items-center gap-5'>
                     <Link className='text-base font-medium dark:text-white' to={"/"}>Home</Link>
                     <Link className='text-base font-medium dark:text-white' to={"/blogs"}>Blogs</Link>
-                    
-                    <Link className='blog-btn' to={"/login"}>login</Link>
+                    {user ? 
+                        <Link className='blog-btn' onClick={userLogOut}>LogOut</Link>
+                        :
+                        <Link className='blog-btn' to={"/login"}>login</Link>
+                    }
+
                     <Link to={"/dashboard"}>
                         <img className='w-10 h-10 rounded-full object-cover' src={img} alt="" />
                     </Link>
