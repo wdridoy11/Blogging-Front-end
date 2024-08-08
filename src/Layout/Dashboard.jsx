@@ -17,8 +17,8 @@ const Dashboard = () => {
     console.log(isSidebarActive)
   }
 
-  let isAdmin = true;
-  let isUser = false;
+  let isAdmin = false;
+  let isUser = true;
 
   return (
     <div className='min-h-screen md:flex dark-light-bg'>

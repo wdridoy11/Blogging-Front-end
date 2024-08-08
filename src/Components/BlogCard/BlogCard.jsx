@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import BlogSave from '../BlogSave/BlogSave';
 import RemoveBlog from '../RemoveBlog/RemoveBlog';
@@ -9,7 +9,14 @@ const BlogCard = ({blog}) => {
     
     const { _id, blog_title, blog_image, blog_description } = blog;
     // TODO: remove button
-    let remove = false;
+    const url = window.location.href;
+    let remove ;
+
+    if(url === 'http://localhost:3000/dashboard/favorite'){
+        remove = true;
+    }else{
+        remove = false;
+    }
 
   return (
     <div>
@@ -18,7 +25,7 @@ const BlogCard = ({blog}) => {
                 <img className='w-full h-[250px] object-cover object-top rounded-t-md' src={blog_image} alt="blog image" />
                 {/* blog remove system only visible dashboard */}
                 {remove ? <div className='absolute top-5 right-5'>
-                    <RemoveBlog />
+                    <RemoveBlog blog={blog} />
                 </div>:""}
             </div>
             <div className='p-4 rounded-b-md dark-light-bg'>
