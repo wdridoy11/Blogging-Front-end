@@ -11,8 +11,7 @@ const BlogCard = ({blog}) => {
     // TODO: remove button
     const url = window.location.href;
     let remove ;
-
-    if(url === 'http://localhost:3000/dashboard/favorite'){
+    if(url === 'http://localhost:3000/dashboard/favorite' || url === 'http://localhost:3000/dashboard/save'){
         remove = true;
     }else{
         remove = false;
