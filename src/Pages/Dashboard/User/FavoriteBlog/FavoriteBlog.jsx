@@ -22,9 +22,7 @@ const FavoriteBlog = () => {
 
     // blogs data and favorite data id match and return data
     useEffect(()=>{
-        const blogFilter = blogs.filter((blog)=>{
-           return favoriteBlog.filter((fav)=>fav.blog_id === blog._id);
-        })
+        const blogFilter = blogs.filter((blog)=>favoriteBlog.some(fav => fav.blog_id === blog._id))
         setFilterBlogs(blogFilter);
     },[blogs, favoriteBlog])
 

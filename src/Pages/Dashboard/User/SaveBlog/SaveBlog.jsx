@@ -23,9 +23,7 @@ const SaveBlog = () => {
 
   // blog data load
   useEffect(()=>{
-      const blogFilter = blogs.filter((blog)=>{
-        return saveBlog.filter((save)=>save.blog_id === blog._id)
-      })
+      const blogFilter = blogs.filter((blog)=>saveBlog.some(fav => fav.blog_id === blog._id))
       setSaveBlogFilter(blogFilter);
   },[blogs, saveBlog])
 

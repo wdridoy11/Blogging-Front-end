@@ -11,6 +11,7 @@ const RemoveBlog = ({blog}) => {
 
   // Dashboard save blog and favotite blog handle
   const handleBlogRemove=(id)=>{
+    console.log(id)
     Swal.fire({
       title: 'Are you sure?',
       // text: "You will delete your favorite blog",
@@ -21,10 +22,18 @@ const RemoveBlog = ({blog}) => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes'
     }).then((result)=>{
-
       if(pathName === 'save'){
         if(result.isConfirmed){
-          console.log("Save blog remove")
+          fetch(`${process.env.REACT_APP_API_URL}/save-blog/${id}`,{
+            method:"DELETE",
+            headers:{
+              "content-type":"application/json"
+            },
+          })
+          .then((res)=>res.json())
+          .then((data)=>{
+            console.log(data)
+          })
         }
       }
       else if(pathName === 'favorite'){
