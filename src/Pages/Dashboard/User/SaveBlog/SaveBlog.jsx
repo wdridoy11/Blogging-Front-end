@@ -17,11 +17,11 @@ const SaveBlog = () => {
     queryKey:["saveBlog"],
     queryFn: async ()=>{
         const res = await axiosSecure(`/save-blog?email=${user?.email}`);
-        console.log(res.data)
         return res.data;
     }
   })
 
+  // blog data load
   useEffect(()=>{
       const blogFilter = blogs.filter((blog)=>{
         return saveBlog.filter((save)=>save.blog_id === blog._id)
