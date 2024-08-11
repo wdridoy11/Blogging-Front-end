@@ -13,7 +13,6 @@ const RemoveBlog = ({blog}) => {
   const handleBlogRemove=(blogInfo)=>{
     Swal.fire({
       title: 'Are you sure?',
-      // text: "You will delete your favorite blog",
       text: `You will delete your ${pathName} blog`,
       icon: 'warning',
       showCancelButton: true,
@@ -21,7 +20,7 @@ const RemoveBlog = ({blog}) => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes'
     }).then((result)=>{
-
+      // save blog remove
       if(pathName === 'save'){
         if(result.isConfirmed){
           fetch(`${process.env.REACT_APP_API_URL}/save-blog/${blogInfo._id}`,{
@@ -32,7 +31,17 @@ const RemoveBlog = ({blog}) => {
           })
           .then((res)=>res.json())
           .then((data)=>{
-            console.log(data)
+              if(data.deletedCount>0){
+                // refetch();
+                Swal.fire(
+                  'Deleted!',
+                  'Your save blog delete successful',
+                  'success'
+                )
+              }
+          })
+          .catch((err)=>{
+            console.log(err.message)
           })
         }
       }
@@ -48,7 +57,6 @@ const RemoveBlog = ({blog}) => {
           .then((res)=>res.json())
           .then((data)=>{
             if(data.deletedCount>0){
-            // if(data.result.deletedCount>0){
               // refetch();
               Swal.fire(
                 'Deleted!',
@@ -56,7 +64,6 @@ const RemoveBlog = ({blog}) => {
                 'success'
               )
             }
-            console.log(data.deletedCount)
           })
           .catch((err)=>{
             console.log(err.message)
