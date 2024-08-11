@@ -46,7 +46,7 @@ const BlogDetails = () => {
                         </div>
                         <div className='flex gap-2'>
                             <FavoriteBlog favoriteBlog={blogData}  />
-                            <BlogSave />
+                            <BlogSave saveBlog={blogData} />
                         </div>
                     </div>
 

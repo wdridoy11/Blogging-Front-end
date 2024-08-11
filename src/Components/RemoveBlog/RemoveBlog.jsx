@@ -1,16 +1,19 @@
 import React from 'react'
 import { FaHeart, FaTrash} from 'react-icons/fa'
 import Swal from 'sweetalert2'
+import useFavorite from '../../Hooks/useFavorite'
 
 const RemoveBlog = ({blog}) => {
 
+  const [ refetch ] = useFavorite();
+  // favorite blog delete successful
   const handleFavoriteRemove=(id)=>{
     Swal.fire({
       title: 'Are you sure?',
       text: "You will delete your favorite blog",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#29C8E6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes'
     }).then((result)=>{
@@ -22,7 +25,20 @@ const RemoveBlog = ({blog}) => {
             }
           })
           .then((res)=>res.json())
-          .then((data)=>console.log(data))
+          .then((data)=>{
+            if(data.deletedCount>0){
+              refetch();
+              Swal.fire(
+                'Deleted!',
+                'Your favorite blog delete successful',
+                'success'
+              )
+            }
+            console.log(data)
+          })
+          .catch((err)=>{
+            console.log(err.message)
+          })
       }
     })
 

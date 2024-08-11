@@ -40,7 +40,7 @@ const BlogCard = ({blog}) => {
                         {/* Favorite Blog button */}
                         <FavoriteBlog favoriteBlog={blog}  />
                         {/* Blog save Button */}
-                        <BlogSave />
+                        <BlogSave saveBlog={blog} />
                     </div>
                 </div>
                 {/* Blog post information */}
