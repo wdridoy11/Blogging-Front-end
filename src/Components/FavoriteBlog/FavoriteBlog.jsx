@@ -10,7 +10,6 @@ const FavoriteBlog = ({favoriteBlog}) => {
   const {user} = useContext(AuthContext);
   // favorite data load form useFavorite hook
   const [favorite,refetch] = useFavorite();
-
   // BLog author match authored you can not add favorite blog
   const blogAuthorMatch = favorite.find((item)=>item?.blog_id === favoriteBlog?._id && item?.author_email === user?.email);
 

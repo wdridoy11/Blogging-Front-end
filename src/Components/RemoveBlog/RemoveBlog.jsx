@@ -10,8 +10,7 @@ const RemoveBlog = ({blog}) => {
   const pathName = url.slice(11);
 
   // Dashboard save blog and favotite blog handle
-  const handleBlogRemove=(id)=>{
-    console.log(id)
+  const handleBlogRemove=(blogInfo)=>{
     Swal.fire({
       title: 'Are you sure?',
       // text: "You will delete your favorite blog",
@@ -22,9 +21,10 @@ const RemoveBlog = ({blog}) => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes'
     }).then((result)=>{
+
       if(pathName === 'save'){
         if(result.isConfirmed){
-          fetch(`${process.env.REACT_APP_API_URL}/save-blog/${id}`,{
+          fetch(`${process.env.REACT_APP_API_URL}/save-blog/${blogInfo._id}`,{
             method:"DELETE",
             headers:{
               "content-type":"application/json"
@@ -36,9 +36,10 @@ const RemoveBlog = ({blog}) => {
           })
         }
       }
+      // favorite blog delete
       else if(pathName === 'favorite'){
         if(result.isConfirmed){
-          fetch(`${process.env.REACT_APP_API_URL}/favorite-blog/${id}`,{
+          fetch(`${process.env.REACT_APP_API_URL}/favorite-blog/${blogInfo._id}`,{
             method:"DELETE",
             headers:{
               "content-type":"application/json"
@@ -47,43 +48,21 @@ const RemoveBlog = ({blog}) => {
           .then((res)=>res.json())
           .then((data)=>{
             if(data.deletedCount>0){
-              refetch();
+            // if(data.result.deletedCount>0){
+              // refetch();
               Swal.fire(
                 'Deleted!',
                 'Your favorite blog delete successful',
                 'success'
               )
             }
-            console.log(data)
+            console.log(data.deletedCount)
           })
           .catch((err)=>{
             console.log(err.message)
           })
         }
       }
-      // if(result.isConfirmed){
-      //     fetch(`${process.env.REACT_APP_API_URL}/favorite-blog/${id}`,{
-      //       method:"DELETE",
-      //       headers:{
-      //         "content-type":"application/json"
-      //       }
-      //     })
-      //     .then((res)=>res.json())
-      //     .then((data)=>{
-      //       if(data.deletedCount>0){
-      //         refetch();
-      //         Swal.fire(
-      //           'Deleted!',
-      //           'Your favorite blog delete successful',
-      //           'success'
-      //         )
-      //       }
-      //       console.log(data)
-      //     })
-      //     .catch((err)=>{
-      //       console.log(err.message)
-      //     })
-      // }
 
     })
 
@@ -91,7 +70,7 @@ const RemoveBlog = ({blog}) => {
 
   return (
     <>
-        <button onClick={()=>handleBlogRemove(blog._id)} className='blog-favorite bg-blog-primary text-white hover:bg-red-600 hover:border-red-600'>
+        <button onClick={()=>handleBlogRemove(blog)} className='blog-favorite bg-blog-primary text-white hover:bg-red-600 hover:border-red-600'>
             {/* <FaHeart className='text-xs'></FaHeart> */}
             <FaTrash className='text-lg' />
         </button>
