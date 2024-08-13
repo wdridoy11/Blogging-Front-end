@@ -3,24 +3,38 @@ import {FaHeart} from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import useFavorite from '../../Hooks/useFavorite';
+import { useNavigate } from 'react-router-dom';
 
 
 const FavoriteBlog = ({favoriteBlog}) => {
 
   const {user} = useContext(AuthContext);
+  const navigate = useNavigate();
   // favorite data load form useFavorite hook
   const [favorite,refetch] = useFavorite();
   // BLog author match authored you can not add favorite blog
   const blogAuthorMatch = favorite.find((item)=>item?.blog_id === favoriteBlog?._id && item?.author_email === user?.email);
-
   // database favorite and user information match
   const blogUserMatch = favorite.find((item)=>item?.blog_id === favoriteBlog?._id && item?.user_email === user?.email);
-
   // Favorite blog handle 
   const handleFavoriteBlog =(favoriteInfo)=>{
       const blogInfo ={blog_id:favoriteInfo?._id,author_email:favoriteInfo?.author_email, user_email:user?.email};
       // If save favorite blog match show one alert message otherwise add favorite blog
-      if(blogUserMatch){
+      if(!user && !user?.email){
+        Swal.fire({
+            title: 'Please login',
+            text: `You can not add without login`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#29C8E6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Login now!'
+        }).then((result)=>{
+            if(result.isConfirmed){
+              navigate('/login')
+            }
+        })
+      }else if(blogUserMatch){
         Swal.fire({
           position: 'top-end',
           icon: 'error',

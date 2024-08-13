@@ -3,12 +3,12 @@ import Swal from 'sweetalert2';
 import {FaBookmark} from 'react-icons/fa';
 import useSave from '../../Hooks/useSave';
 import { AuthContext } from '../../Providers/AuthProvider';
-
-
+import { useNavigate } from 'react-router-dom';
 
 const BlogSave = ({saveBlog}) => {
 
   const {user} = useContext(AuthContext)
+  const navigate = useNavigate();
   // save blog data load form useSave hook
   const [save,refetch] = useSave()
 
@@ -22,7 +22,21 @@ const BlogSave = ({saveBlog}) => {
   const handleSaveBlog =(saveInfo)=>{
       const blogInfo ={blog_id:saveInfo?._id,author_email:saveInfo?.author_email, user_email:user?.email};
       // If save blog match show one alert message otherwise add save blog
-      if(blogUserMatch){
+      if(!user && user?.email){
+        Swal.fire({
+            title: 'Please login',
+            text: `You can not add without login`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#29C8E6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Login now!'
+        }).then((result)=>{
+            if(result.isConfirmed){
+              navigate('/login')
+            }
+        })
+      }else if(blogUserMatch){
         Swal.fire({
           position: 'top-end',
           icon: 'error',
