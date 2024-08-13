@@ -22,7 +22,7 @@ const FavoriteBlog = ({favoriteBlog}) => {
       // login check first them if save favorite blog match show one alert message otherwise add favorite blog
       if(!user && !user?.email){
         Swal.fire({
-            title: 'Please login',
+            title: 'Log in to continue',
             text: `You can not add without login`,
             icon: 'warning',
             showCancelButton: true,
