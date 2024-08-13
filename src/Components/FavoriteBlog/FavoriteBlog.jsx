@@ -19,7 +19,7 @@ const FavoriteBlog = ({favoriteBlog}) => {
   // Favorite blog handle 
   const handleFavoriteBlog =(favoriteInfo)=>{
       const blogInfo ={blog_id:favoriteInfo?._id,author_email:favoriteInfo?.author_email, user_email:user?.email};
-      // If save favorite blog match show one alert message otherwise add favorite blog
+      // login check first them if save favorite blog match show one alert message otherwise add favorite blog
       if(!user && !user?.email){
         Swal.fire({
             title: 'Please login',

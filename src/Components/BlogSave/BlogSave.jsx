@@ -21,8 +21,8 @@ const BlogSave = ({saveBlog}) => {
   // save blog handle 
   const handleSaveBlog =(saveInfo)=>{
       const blogInfo ={blog_id:saveInfo?._id,author_email:saveInfo?.author_email, user_email:user?.email};
-      // If save blog match show one alert message otherwise add save blog
-      if(!user && user?.email){
+      // login check first them if save blog match show one alert message otherwise add save blog
+      if(!user && !user?.email){
         Swal.fire({
             title: 'Please login',
             text: `You can not add without login`,
