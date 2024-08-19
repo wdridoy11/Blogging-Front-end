@@ -14,7 +14,7 @@ import img from '../../Assets/Rectangle 1.png';
 
 const BlogDetails = () => {
     const {user} = useContext(AuthContext);
-    const [userInfo, setUserInfo] = useState();
+    const [comment, setComment] = useState("");
     const blogData = useLoaderData();
     const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
@@ -30,7 +30,6 @@ const BlogDetails = () => {
         }
     })
 
-
     // handle user blog comment 
     const handleComment = (event) => {
         event.preventDefault();
@@ -45,7 +44,25 @@ const BlogDetails = () => {
                 blog_id:_id,
                 blog_comment:blogComment
             }
-            console.log(commentInfo)
+            fetch(`${process.env.REACT_APP_API_URL}/comment`,{
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(commentInfo)
+            })
+            .then((res)=>res.json())
+            .then((data)=>{
+                if(data.insertedId){
+                    Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: "Thanks for your valuable comment.",
+                      showConfirmButton: false,
+                      timer: 1000
+                    });
+                  }
+                event.target.reset();
+            })
+            .catch((err)=>console.log(err.message))
        }else{
             Swal.fire({
                 title: 'Log in to continue',
@@ -116,7 +133,15 @@ const BlogDetails = () => {
                             <div>
                                 <form onSubmit={handleComment} className='w-full'>
                                     <label htmlFor="blog_comment" className='text-lg block text-[#8799ad] dark:text-white'>Comment</label>
-                                    <textarea name="blog_comment" className='w-full dark-light-border dark-light-bg p-3 dark-light-text rounded-md outline-none mt-2' id="blog_comment" cols="30" rows="5" placeholder='Write Comment...' required></textarea>
+                                    <textarea 
+                                        name="blog_comment" 
+                                        className='w-full dark-light-border dark-light-bg p-3 dark-light-text rounded-md outline-none mt-2' 
+                                        id="blog_comment" 
+                                        cols="30" 
+                                        rows="5" 
+                                        placeholder='Write Comment...' 
+                                        required>
+                                    </textarea>
                                     <input type="submit" className='blog-btn' value="Submit" />
                                 </form>
                             </div>
