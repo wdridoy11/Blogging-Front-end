@@ -15,14 +15,16 @@ import Login from '../Modal/Login';
 
 const BlogDetails = () => {
     
+    const [isOpen, setIsOpen] = useState(false);
+    const [message, setMessage] = useState();
     const {user} = useContext(AuthContext);
     const blogData = useLoaderData();
     const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
+
     const { _id, blog_title, blog_image, blog_description, blog_category } = blogData;
 
     let date = new Date();
-    console.log(date.toString())
 
     // comment data get and blog id match
     const {refetch, data: comments = []} = useQuery({
@@ -52,6 +54,9 @@ const BlogDetails = () => {
             blog_id:_id, 
             likeTime:new Date().toString(),
         }
+
+       setIsOpen(true);
+       setMessage("like");
         // if()
     }
 
@@ -79,31 +84,17 @@ const BlogDetails = () => {
             .then((data)=>{
                 if(data.insertedId){
                     refetch();
-                    Swal.fire({
-                      position: "top-end",
-                      icon: "success",
-                      title: "Thanks for your valuable comment.",
-                      showConfirmButton: false,
-                      timer: 1000
-                    });
+                    // Login modal
+                    setIsOpen(true);
+                    setMessage("comment");
                   }
                 event.target.reset();
             })
             .catch((err)=>console.log(err.message))
        }else{
-            Swal.fire({
-                title: 'Log in to continue',
-                text: `You can not comment without login`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#29C8E6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Login now!'
-            }).then((result)=>{
-                if(result.isConfirmed){
-                  navigate('/login')
-                }
-            })
+            // login modal
+            setIsOpen(true);
+            setMessage("comment");
        }
    }
 
@@ -126,7 +117,6 @@ const BlogDetails = () => {
                         <h1>{blog_title}</h1>
                         { blog_category.map((category)=><p>{category}</p>)}
                     </div> */}
-                    <Login />
                     {/* blog post information */}
                     <div className='flex gap-5 mt-2'>
                         {/* blog post info from conponents */}
@@ -207,6 +197,12 @@ const BlogDetails = () => {
             </div>
 
         </div>
+        {/* without login popup */}
+        <Login 
+            isOpen={isOpen} 
+            setIsOpen={setIsOpen} 
+            message={message}
+        />
     </div>
   )
 }
