@@ -27,7 +27,13 @@ code {
         background-color:#29C8E6;
     }
     .text-blog-primary{
+        color:#29C8E6;
+    }
+    .text-blog-primary{
         color: #29C8E6;
+    }
+    .social-blog-share-btn{
+        @apply bg-blog-primary text-white p-2 rounded-md border border-[#29c8e6] hover:bg-transparent hover:text-blog-primary dark:hover:text-white duration-500;
     }
     .social-media-icon{
         @apply text-xl bg-blog-primary p-2 text-white rounded-md border border-[#29c8e6] hover:bg-black duration-500;

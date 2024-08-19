@@ -19,6 +19,7 @@ import FavoriteBlog from '../Pages/Dashboard/User/FavoriteBlog/FavoriteBlog';
 import AdminProfile from '../Pages/Dashboard/Admin/AdminProfile/AdminProfile';
 import CreateCategory from '../Pages/Dashboard/Admin/CreateCategory/CreateCategory';
 import AdminDashboard from '../Pages/Dashboard/Admin/AdminDashboard/AdminDashboard';
+import History from '../Pages/Dashboard/User/History/History';
 
 
 const router=createBrowserRouter([
@@ -81,6 +82,11 @@ const router=createBrowserRouter([
            {
                 path:"profile",
                 element:<AdminProfile />
+                
+           },
+           {
+                path:"history",
+                element:<History />
                 
            },
         //    {

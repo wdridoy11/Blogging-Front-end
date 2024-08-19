@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { AiFillLike } from "react-icons/ai";
 import { FaLinkedin } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 import BlogPostInfo from '../BlogPostInfo/BlogPostInfo';
@@ -134,8 +135,9 @@ const BlogDetails = () => {
                     <div>
                         <h3>Like Blog</h3>
                         <div>
-                            <button className='social-media-icon'>
-                                <FaLinkedin></FaLinkedin>
+                            <button className='social-media-icon flex items-center gap-3 px-5'>
+                                <AiFillLike /> 
+                                <p>10</p>
                             </button>
                         </div>
                     </div>

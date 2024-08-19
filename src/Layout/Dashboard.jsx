@@ -60,6 +60,7 @@ const Dashboard = () => {
                                 <NavLink className={({ isActive }) =>` dashboard-link ${ isActive ? 'bg-blog-primary text-white' : 'text-black'}`} to="/dashboard/save"><FaBookmark /> Save</NavLink>
                                 <NavLink className={({ isActive }) =>` dashboard-link ${ isActive ? 'bg-blog-primary text-white' : 'text-black'}`} to="/dashboard/favorite"><FaHeart /> Favorite</NavLink>
                                 <NavLink className={({ isActive }) =>` dashboard-link ${ isActive ? 'bg-blog-primary text-white' : 'text-black'}`} to="/dashboard/user-profile"><FaUserAlt /> Profile</NavLink>
+                                <NavLink className={({ isActive }) =>` dashboard-link ${ isActive ? 'bg-blog-primary text-white' : 'text-black'}`} to="/dashboard/history"><FaUserAlt /> History</NavLink>
                             </div>
                         </>}
                     </div>
