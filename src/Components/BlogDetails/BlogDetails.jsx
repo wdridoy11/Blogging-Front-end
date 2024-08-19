@@ -10,17 +10,29 @@ import BlogSave from '../BlogSave/BlogSave';
 import SocialMedia from '../SocialMedia/SocialMedia';
 import BlogComment from '../BlogComment/BlogComment';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
-import img from '../../Assets/Rectangle 1.png';
 
 const BlogDetails = () => {
+    
+    const [comment, setComment] = useState();
     const {user} = useContext(AuthContext);
-    const [comment, setComment] = useState("");
     const blogData = useLoaderData();
     const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
     const { _id, blog_title, blog_image, blog_description, blog_category } = blogData;
 
-    const {refetch, data: users = [], isLoading} = useQuery({
+    // comment data get and blog id match
+    const {refetch, data: comments = []} = useQuery({
+        queryKey:["comments"],
+        queryFn: async ()=>{
+            const res = await axiosSecure(`/comment`);
+            const userData = res.data;
+            const userId = userData.filter((comment)=>comment.blog_id === _id);
+            return userId;
+        }
+    })
+
+    // user data get
+    const {data: users = []} = useQuery({
         queryKey:["users"],
         queryFn: async ()=>{
             const res = await axiosSecure(`/users`);
@@ -157,7 +169,8 @@ const BlogDetails = () => {
                     </div>
                     {/* Prople Comment */}
                     <div className='mt-10'>
-                        <BlogComment blogComment={blogData} />
+                        <BlogComment blogComment={comments} />
+                        {/* <BlogComment blogComment={blogData} /> */}
                     </div>
                 </div>
             </div>
