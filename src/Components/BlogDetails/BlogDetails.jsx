@@ -13,7 +13,6 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const BlogDetails = () => {
     
-    const [comment, setComment] = useState();
     const {user} = useContext(AuthContext);
     const blogData = useLoaderData();
     const [axiosSecure] = useAxiosSecure();
@@ -64,6 +63,7 @@ const BlogDetails = () => {
             .then((res)=>res.json())
             .then((data)=>{
                 if(data.insertedId){
+                    refetch();
                     Swal.fire({
                       position: "top-end",
                       icon: "success",
