@@ -6,7 +6,6 @@ import BlogPostInfo from '../BlogPostInfo/BlogPostInfo';
 import FavoriteBlog from '../FavoriteBlog/FavoriteBlog';
 
 const BlogCard = ({blog}) => {
-    console.log(blog)
     const { _id, blog_title, blog_image, blog_description } = blog;
     // TODO: remove button
     const url = window.location.href;

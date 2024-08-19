@@ -11,6 +11,7 @@ import BlogSave from '../BlogSave/BlogSave';
 import SocialMedia from '../SocialMedia/SocialMedia';
 import BlogComment from '../BlogComment/BlogComment';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import Login from '../Modal/Login';
 
 const BlogDetails = () => {
     
@@ -19,6 +20,9 @@ const BlogDetails = () => {
     const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
     const { _id, blog_title, blog_image, blog_description, blog_category } = blogData;
+
+    let date = new Date();
+    console.log(date.toString())
 
     // comment data get and blog id match
     const {refetch, data: comments = []} = useQuery({
@@ -41,6 +45,16 @@ const BlogDetails = () => {
             return userFind;
         }
     })
+
+    const handleLike=()=>{
+        const LikeInfo = {
+            user_email:users?.email,
+            blog_id:_id, 
+            likeTime:new Date().toString(),
+        }
+        // if()
+    }
+
 
     // handle user blog comment 
     const handleComment = (event) => {
@@ -112,6 +126,7 @@ const BlogDetails = () => {
                         <h1>{blog_title}</h1>
                         { blog_category.map((category)=><p>{category}</p>)}
                     </div> */}
+                    <Login />
                     {/* blog post information */}
                     <div className='flex gap-5 mt-2'>
                         {/* blog post info from conponents */}
@@ -135,7 +150,7 @@ const BlogDetails = () => {
                     <div>
                         <h3>Like Blog</h3>
                         <div>
-                            <button className='social-media-icon flex items-center gap-3 px-5'>
+                            <button onClick={handleLike} className='social-media-icon flex items-center gap-3 px-5'>
                                 <AiFillLike /> 
                                 <p>10</p>
                             </button>
