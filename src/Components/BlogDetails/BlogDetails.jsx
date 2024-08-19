@@ -1,22 +1,66 @@
-import React from 'react'
-import img from '../../Assets/Rectangle 1.png';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { FaLinkedin } from 'react-icons/fa';
+import { AuthContext } from '../../Providers/AuthProvider';
 import BlogPostInfo from '../BlogPostInfo/BlogPostInfo';
 import FavoriteBlog from '../FavoriteBlog/FavoriteBlog';
 import BlogSave from '../BlogSave/BlogSave';
 import SocialMedia from '../SocialMedia/SocialMedia';
 import BlogComment from '../BlogComment/BlogComment';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import img from '../../Assets/Rectangle 1.png';
 
 const BlogDetails = () => {
-
+    const {user} = useContext(AuthContext);
+    const [userInfo, setUserInfo] = useState();
     const blogData = useLoaderData();
+    const [axiosSecure] = useAxiosSecure();
+    const navigate = useNavigate();
     const { _id, blog_title, blog_image, blog_description, blog_category } = blogData;
 
-   const handleComment = (event) => {
+    const {refetch, data: users = [], isLoading} = useQuery({
+        queryKey:["users"],
+        queryFn: async ()=>{
+            const res = await axiosSecure(`/users`);
+            const userData = res.data;
+            const userFind = userData.find((userInfo)=>userInfo.email === user.email)
+            return userFind;
+        }
+    })
+
+
+    // handle user blog comment 
+    const handleComment = (event) => {
         event.preventDefault();
+        // blog data get
         let blogComment = event.target.blog_comment.value;
-        console.log(blogComment);
+       if(user){
+            const commentInfo = {   
+                user_email:users?.email,
+                user_firstName:users?.firstName, 
+                user_LastName:users?.lastName,
+                user_image_url:users?.image,
+                blog_id:_id,
+                blog_comment:blogComment
+            }
+            console.log(commentInfo)
+       }else{
+            Swal.fire({
+                title: 'Log in to continue',
+                text: `You can not comment without login`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#29C8E6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+            }).then((result)=>{
+                if(result.isConfirmed){
+                  navigate('/login')
+                }
+            })
+       }
    }
 
   return (
@@ -34,10 +78,10 @@ const BlogDetails = () => {
             </div>
             <div className='container mx-auto'>
                 <div>
-                    <div>
+                    {/* <div>
                         <h1>{blog_title}</h1>
                         { blog_category.map((category)=><p>{category}</p>)}
-                    </div>
+                    </div> */}
                     {/* blog post information */}
                     <div className='flex gap-5 mt-2'>
                         {/* blog post info from conponents */}
@@ -72,7 +116,7 @@ const BlogDetails = () => {
                             <div>
                                 <form onSubmit={handleComment} className='w-full'>
                                     <label htmlFor="blog_comment" className='text-lg block text-[#8799ad] dark:text-white'>Comment</label>
-                                    <textarea name="blog_comment" className='w-full dark-light-border dark-light-bg p-3 rounded-md outline-none mt-2' id="blog_comment" cols="30" rows="5" placeholder='Write Comment...'></textarea>
+                                    <textarea name="blog_comment" className='w-full dark-light-border dark-light-bg p-3 dark-light-text rounded-md outline-none mt-2' id="blog_comment" cols="30" rows="5" placeholder='Write Comment...' required></textarea>
                                     <input type="submit" className='blog-btn' value="Submit" />
                                 </form>
                             </div>
